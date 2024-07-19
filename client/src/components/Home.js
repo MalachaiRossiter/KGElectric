@@ -1,3 +1,4 @@
+import Navbar from './Navbar';
 import {useEffect, useState } from 'react';
 
 const Home = (props) => {
