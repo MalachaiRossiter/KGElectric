@@ -7,6 +7,7 @@ const Navbar = (props) => {
 
     return (
         <div className='navbar'>
+            <img></img>
             <div className='linkWrapper'>
                 <div className='dropDown'>
                     <button className='Dropbtn'>Our Specialties
@@ -25,4 +26,4 @@ const Navbar = (props) => {
         </div>
     )
 }
-export default Navbar
+export default Navbar;
