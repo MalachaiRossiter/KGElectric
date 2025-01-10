@@ -11,7 +11,7 @@ const Navbar = (props) => {
     }, []);
 
     const handleCopy = () => {
-        navigator.clipboard.writeText('(440) 812-9963')
+        navigator.clipboard.writeText('(440) 228-0966')
         .then(() => {
             if (Notification.permission === 'granted') {
                 new Notification('Success', {
@@ -28,24 +28,24 @@ const Navbar = (props) => {
 
     return (
         <div className='navbar'>
-            <a className='logoWrapper' href="#">
+            <Link className='logoWrapper' to={"/"}>
                 <img className='logo' src={logo} alt={'logo'} />
-            </a>
+            </Link>
             <div className='linkWrapper'>
                 <div className='dropDown'>
                     <button className='dropbtn'>Our Specialties
                         <i className='fa fa-caret-down'></i>
                     </button>
                     <div className='dropDown-content'>
-                        <a href="#">Link 1</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
+                        <Link to={"/"}><h2>Link 3</h2></Link>
+                        <Link to={"/"}><h2>Link 3</h2></Link>
+                        <Link to={"/"}><h2>Link 3</h2></Link>
                     </div>
                 </div>
-                <a href="#">About Us</a>
-                <a href="#">We're Hiring</a>
+                <Link to={"/"}><h2>About Us</h2></Link>
+                <Link to={"/"}><h2>We're Hiring</h2></Link>
                 <a onClick={handleCopy}>(440) 812-9963</a>
-                <a className='contactbtn' href="#" >Contact Us</a>
+                <Link className='contactbtn' to={"/contact"}><h2>Contact Us</h2></Link>
             </div>
         </div>
     )
