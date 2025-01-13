@@ -22,7 +22,13 @@ const Contact = (props) => {
                 <h3>We're excited and ready to help!</h3>
             </div>
             <div className='right-column'>
-                
+                <form onSubmit={handleSubmit} className='project-form'>
+                    <h1>Tell us how we can help</h1>
+                    <div className='double-input'>
+                        <input type='text' value={firstName} 
+                        // https://www.youtube.com/watch?v=f6ocDCkCmhM
+                    </div>
+                </form>
             </div>
         </div>
     )
