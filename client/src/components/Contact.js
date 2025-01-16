@@ -25,9 +25,16 @@ const Contact = (props) => {
                 <form onSubmit={handleSubmit} className='project-form'>
                     <h1>Tell us how we can help</h1>
                     <div className='double-input'>
-                        <input type='text' value={firstName} 
-                        // https://www.youtube.com/watch?v=f6ocDCkCmhM
+                        {/*https://www.youtube.com/watch?v=f6ocDCkCmhM*/}
+                        <input type='text' value={firstName} placeholder={"First Name*"}/>
+                        <input type='text' value={lastName} placeholder={"Last Name*"}/>
                     </div>
+                    <input type='text' value={email} placeholder={"Email*"}/>
+                    <div className='double-input'>
+                        <input type='text' value={phone} placeholder={"Phone"}/>
+                        <input type='text' value={zipCode} placeholder={"Zip Code"}/>
+                    </div>
+                    <h1></h1>
                 </form>
             </div>
         </div>
