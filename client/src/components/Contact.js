@@ -29,12 +29,21 @@ const Contact = (props) => {
                         <input type='text' value={firstName} placeholder={"First Name*"}/>
                         <input type='text' value={lastName} placeholder={"Last Name*"}/>
                     </div>
+                    <input type='text' value={business} placeholder={"Business"}/>
                     <input type='text' value={email} placeholder={"Email*"}/>
                     <div className='double-input'>
                         <input type='text' value={phone} placeholder={"Phone"}/>
                         <input type='text' value={zipCode} placeholder={"Zip Code"}/>
                     </div>
-                    <h1></h1>
+                    <h1>When would you like to start this project?</h1>
+                    <select value={timeFrame}>
+                        <option value={''}></option>
+                        <option value={'2 to 3 weeks'}>2 to 3 weeks</option>
+                        <option value={'1 to 2 months'}>1 to 2 months</option>
+                        <option value={'6 months'}>6 months</option>
+                        <option value={'1 year +'}>1 year +</option>
+                    </select>
+                    <textarea value={message} placeholder={"Please tell us about your project"}/>
                 </form>
             </div>
         </div>
