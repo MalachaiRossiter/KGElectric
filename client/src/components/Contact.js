@@ -3,6 +3,20 @@ import { Link, useNavigate} from 'react-router-dom';
 
 const Contact = (props) => {
 
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [business, setBusiness] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [zipCode, setZipCode] = useState('');
+    const [timeFrame, setTimeFrame] = useState('');
+    const [message, setMessage] = useState('');
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        
+    }
+
 
 
     return (
@@ -44,6 +58,7 @@ const Contact = (props) => {
                         <option value={'1 year +'}>1 year +</option>
                     </select>
                     <textarea value={message} placeholder={"Please tell us about your project"}/>
+                    <input type={'submit'}/>
                 </form>
             </div>
         </div>
