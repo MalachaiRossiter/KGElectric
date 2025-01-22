@@ -1,0 +1,99 @@
+/* Navbar Container */
+.navbar {
+    overflow: hidden;
+    font-family: "Poppins";
+    margin: 75px 15%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Styling the logo */
+
+.logoWrapper {
+    margin-right: auto;
+}
+
+.logo {
+    height: 40px;
+}
+
+.linkWrapper {
+    display: flex;
+    align-items: center;
+}
+
+/* Set links */
+.navbar a{
+    float: left;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: color 0.5s;
+}
+
+.dropDown {
+    float: left;
+    overflow: hidden;
+}
+
+/* Dropdown button */
+.dropDown .dropbtn {
+    font-size: 20px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+    transition: color 0.5s;
+}
+
+/* Gradient transition on hover */
+.navbar a:hover, .dropDown:hover .dropbtn {
+    text-decoration: underline;
+    color: #fb8500;
+}
+
+/* Dropdown content (hidden by default) */
+.dropDown-content {
+    display: none;
+    position: absolute;
+    background-color: #0f0f0f;
+    min-width: 160px;
+    border-radius: 15px;
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropDown-content a {
+    float: none;
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    transition: color 0.5s;
+}
+
+/* Show the dropdown menu on hover */
+.dropDown:hover .dropDown-content {
+    display: block;
+}
+
+.contactbtn {
+    text-decoration: none;
+    color: black;
+    padding: 10px 20px;
+    border: 2px solid white;
+    border-radius: 10px;
+    transition: border 0.3s ease;
+}
+
+.contactbtn:hover {
+    border: 2px solid #fb8500;
+}
