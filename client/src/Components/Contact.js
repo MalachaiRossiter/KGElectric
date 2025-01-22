@@ -98,7 +98,7 @@ const Contact = (props) => {
                         <p>Business</p>
                         {errors.message && <p className="error">{errors.business}</p>}
                     </div>
-                    <input type='text' name={'business'} value={formItems.business} placeholder={"Business"} onChange={handleChange}/>
+                    <input type='text' name={'business'} value={formItems.business} placeholder={"Business*"} onChange={handleChange}/>
                     <div className='field-descriptor'>
                         <p>Email</p>
                         {errors.message && <p className="error">{errors.email}</p>}
