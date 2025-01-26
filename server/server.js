@@ -1,17 +1,17 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
 
-//middleware
-app.use(cors({origin: 'http://localhost:3000'}));
+// Middleware
+app.use(cors({ origin: 'http://localhost:3000' }));
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 
-//mount routes
-require('./routes/email.route')(app);
+// Import and use the email routes
+const emailRoutes = require('./routes/emailRoutes');
+app.use('/api/email', emailRoutes); // Mount the router with the correct prefix
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

@@ -28,7 +28,7 @@ module.exports.createBusinessRequest = async (req, res) => {
     const errors = validateFormData(req.body);
 
     // If validation errors exist, return a response with the errors
-    if (Object.jeys(errors).length > 0) {
+    if (Object.keys(errors).length > 0) {
         return res.status(400).json({ success: false, errors });
     }
     //creates the email subject and email body
