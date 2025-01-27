@@ -5,7 +5,7 @@ module.exports.createBusinessRequest = async (req, res) => {
     // Validation function called in function below
     const validateFormData = (formData) => {
         const errors = {};
-
+    
         if (!formData.firstName?.trim()) errors.firstName = 'First Name is required';
         if (!formData.lastName?.trim()) errors.lastName = 'Last Name is required';
         if (!formData.business?.trim()) errors.business = 'Business is required';
@@ -14,14 +14,19 @@ module.exports.createBusinessRequest = async (req, res) => {
         } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
             errors.email = 'Invalid email address';
         }
-        if (formData.phone?.trim() && !/^\d{10}$/.test(formData.phone)) {
+    
+        // Convert phone to a string and then trim
+        if (String(formData.phone)?.trim() && !/^\d{10}$/.test(String(formData.phone))) {
             errors.phone = 'Phone number must be 10 digits';
         }
-        if (formData.zipCode?.trim() && !/^\d{5}$/.test(formData.zipCode)) {
+    
+        // Convert zipCode to a string and then trim
+        if (String(formData.zipCode)?.trim() && !/^\d{5}$/.test(String(formData.zipCode))) {
             errors.zipCode = 'Zip Code must be 5 digits';
         }
+    
         if (!formData.message?.trim()) errors.message = 'Message is required';
-
+    
         return errors;
     };
 
