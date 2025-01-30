@@ -25,27 +25,6 @@ const Contact = (props) => {
         }));
     };
 
-    const validate = () => {
-        const newErrors = {};
-
-        if (!formItems.firstName.trim()) newErrors.firstName = 'First Name is required';
-        if (!formItems.lastName.trim()) newErrors.lastName = 'Last Name is required';
-        if (!formItems.email.trim()) {
-            newErrors.email = 'Email is required';
-        } else if (!/\S+@\S+\.\S+/.test(formItems.email)) {
-            newErrors.email = 'Invalid email address';
-        }
-        if (formItems.phone.trim() && !/^\d{10}$/.test(formItems.phone)) {
-            newErrors.phone = 'Phone number must be 10 digits';
-        }
-        if (formItems.zipCode.trim() && !/^\d{5}$/.test(formItems.zipCode)) {
-            newErrors.zipCode = 'Zip Code must be 5 digits';
-        }
-        if (!formItems.message.trim()) newErrors.message = 'Message is required';
-
-        return newErrors;
-    };
-
     const handleSubmit = (e) => {
         e.preventDefault();
         const validationErrors = validate();
