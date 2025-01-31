@@ -1,6 +1,6 @@
 const nodemailer =  require('nodemailer');
 
-const sendEmailService = async (toEmail, subject, body, attachments = []) => {
+const sendEmailService = async (replyEmail, subject, body, attachments = []) => {
     const transporter = nodemailer.createTransport({
         host: process.env.EMAIL_HOST,
         port: process.env.EMAIL_PORT,
@@ -16,10 +16,10 @@ const sendEmailService = async (toEmail, subject, body, attachments = []) => {
     const mailOptions = {
         from: process.env.EMAIL_USER,
         to: process.env.EMAIL_USER,
-        replyTo: toEmail,
+        replyTo: replyEmail,
         subject: subject,
         text: body,
-        ...body(attachments.length > 0 && { attachments }), //only adds attachment if there is one
+        attachments: attachments.length > 0 ? attachments : undefined // Attach only if present
     };
 
     return transporter.sendMail(mailOptions);

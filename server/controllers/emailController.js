@@ -81,6 +81,16 @@ module.exports.createResumeRequest = async (req, res) => {
 
         if (!formData.message?.trim()) errors.message = 'Message is required';
     
+        // File validation: Check if file exists and is a valid format
+        if (!file) {
+            errors.file = 'Resume file is required';
+        } else {
+            const allowedMimeTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document']; // PDF, .doc, .docx
+            if (!allowedMimeTypes.includes(file.mimetype)) {
+                errors.file = 'Invalid file type. Only PDF and Word documents are allowed.';
+            }
+        }
+
         return errors;
     };
 
@@ -111,7 +121,7 @@ module.exports.createResumeRequest = async (req, res) => {
         await sendEmailService(email, subject, emailBody, attachments);
 
         // Clean up uploaded file after sending email (optional)
-        if (file) {
+        if (file && fs.existsSync(file.path)) {
             fs.unlinkSync(file.path);
         }
 
