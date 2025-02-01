@@ -30,9 +30,9 @@ const Contact = (props) => {
     //handles form submitions and displays errors if needed
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        console.log(formItems);
         try { 
-            const response = await axios.post('http://localhost:5000/sendRequestForm', formItems, {
+            const response = await axios.post('http://localhost:5000/api/email/sendRequestForm', formItems, {
             headers: {'Content-Type': 'application/json' }
             });
 

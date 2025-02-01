@@ -9,8 +9,6 @@ const sendEmailService = async (replyEmail, subject, body, attachments = []) => 
             user:process.env.EMAIL_USER,
             pass:process.env.EMAIL_PASS
         },
-        logger: true,
-        debug: true,
     });
 
     const mailOptions = {
@@ -21,7 +19,7 @@ const sendEmailService = async (replyEmail, subject, body, attachments = []) => 
         text: body,
         attachments: attachments.length > 0 ? attachments : undefined // Attach only if present
     };
-
+    console.log("Pegis");
     return transporter.sendMail(mailOptions);
 }
 

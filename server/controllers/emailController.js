@@ -37,6 +37,7 @@ module.exports.createBusinessRequest = async (req, res) => {
 
     // If validation errors exist, return a response with the errors
     if (Object.keys(errors).length > 0) {
+        console.log(errors);
         return res.status(400).json({ success: false, errors });
     }
     //creates the email subject and email body
