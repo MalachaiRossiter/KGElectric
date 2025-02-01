@@ -14,10 +14,10 @@ const Contact = (props) => {
         timeFrame: '',
         message: '',
     });
+    const [file, setFile] = usestate(null);
 
     const [errors, setErrors] = useState({});
 
-    //handles change in any form inputs
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormItems((prevItems) => ({
@@ -26,27 +26,19 @@ const Contact = (props) => {
         }));
     };
 
+    const handleFileChange = (e) => {
+        setFile(e.target.files[0]);
+    }
 
-    //handles form submitions and displays errors if needed
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-
-        try { 
-            const response = await axios.post('http://localhost:5000/sendRequestForm', formItems, {
-            headers: {'Content-Type': 'application/json' }
-            });
-
-            //If form is submitted successfully it will reset error logs and display log success message
+        try { axios()}
+        if (Object.keys(validationErrors).length > 0) {
+            setErrors(validationErrors);
+            console.log(validationErrors);
+        } else {
             setErrors({});
-            console.log('Form subbmitted Successfully: ', response.data);
-        } catch (error) {
-            //ff request fails, will check for validation errors in responce
-            if(error.response && error.response.data.errors) {
-                setErrors(error.response.data.errors);
-                console.log('Validation Errors: ', error.response.data.errors);
-            } else {
-                console.error('Error submitting form: ', error);
-            }
+            console.log('Form Submitted Successfully: ', formItems);
         }
     };
 
