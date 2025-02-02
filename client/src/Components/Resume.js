@@ -2,22 +2,19 @@ import { useState, useEffect} from 'react';
 import { Link, useNavigate} from 'react-router-dom';
 import axios from 'axios';
 
-const Contact = (props) => {
+const Resume = (props) => {
 
     const [formItems, setFormItems] = useState({
         firstName: '',
         lastName: '',
-        business: '',
         email: '',
-        phone: '',
-        zipCode: '',
-        timeFrame: '',
         message: '',
     });
-    const [file, setFile] = usestate(null);
 
+    const [file, setFile] = useState(null);
     const [errors, setErrors] = useState({});
 
+    //handles change in any form inputs
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormItems((prevItems) => ({
@@ -27,18 +24,43 @@ const Contact = (props) => {
     };
 
     const handleFileChange = (e) => {
-        setFile(e.target.files[0]);
+        setFile(e.target.files[0]); //Store Selected File
     }
 
-    const handleSubmit = (e) => {
+
+    //handles form submitions and displays errors if needed
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        try { axios()}
-        if (Object.keys(validationErrors).length > 0) {
-            setErrors(validationErrors);
-            console.log(validationErrors);
-        } else {
+        console.log(formItems);
+
+        //appends formfields
+        const formData = new FormData();
+        Object.keys(formItems).forEach(key => {
+            formData.append(key, formItems[key]);
+        });
+
+        //append file if available
+        if (file) {
+            formData.append('file', file);
+        }
+        try { 
+            const response = await axios.post('http://localhost:5000/api/email/sendResumeForm', formData, {
+                headers: {'Content-Type': 'multipart/form-data' }
+            });
+
+            //If form is submitted successfully it will reset error logs and display log success message
+            setFormItems({ firstName: '', lastName: '', email: '', message: '' });
+            setFile(null);
             setErrors({});
-            console.log('Form Submitted Successfully: ', formItems);
+            console.log('Form subbmitted Successfully: ', response.data);
+        } catch (error) {
+            //ff request fails, will check for validation errors in responce
+            if(error.response && error.response.data.errors) {
+                setErrors(error.response.data.errors);
+                console.log('Validation Errors: ', error.response.data.errors);
+            } else {
+                console.error('Error submitting form: ', error);
+            }
         }
     };
 
@@ -79,48 +101,20 @@ const Contact = (props) => {
                         </div>
                     </div>
                     <div className='field-descriptor'>
-                        <p>Business</p>
-                        {errors.message && <p className="error">{errors.business}</p>}
-                    </div>
-                    <input type='text' name={'business'} value={formItems.business} placeholder={"Business*"} onChange={handleChange}/>
-                    <div className='field-descriptor'>
                         <p>Email</p>
                         {errors.message && <p className="error">{errors.email}</p>}
                     </div>
                     <input type='text' name={'email'} value={formItems.email} placeholder={"Email*"} onChange={handleChange}/>
-                    <div className='double-input'>
-                        <div className='field-container'>
-                            <div className='field-descriptor'>
-                                <p>Phone</p>
-                                {errors.message && <p className="error">{errors.phone}</p>}
-                            </div>
-                            <input type='text' name={'phone'} value={formItems.phone} placeholder={"***-***-****"} onChange={handleChange}/>
-                        </div>
-                        <div className='field-container'>
-                            <div className='field-descriptor'>
-                                <p>Zip Code</p>
-                                {errors.message && <p className="error">{errors.zipCode}</p>}
-                            </div>
-                            <input type='text' name={'zipCode'} value={formItems.zipCode} placeholder={"Zip Code"} onChange={handleChange}/>
-                        </div>
-                    </div>
-                    <p>When would you like to start this project?</p>
-                    <select name={'timeFrame'} value={formItems.timeFrame} onChange={handleChange}>
-                        <option value={''}></option>
-                        <option value={'2 to 3 weeks'}>2 to 3 weeks</option>
-                        <option value={'1 to 2 months'}>1 to 2 months</option>
-                        <option value={'6 months'}>6 months</option>
-                        <option value={'1 year +'}>1 year +</option>
-                    </select>
                     <div className='field-descriptor'>
                                 <p>Message</p>
                                 {errors.message && <p className="error">{errors.message}</p>}
                             </div>
                     <textarea name={'message'} value={formItems.message} placeholder={"Please tell us about your project*"} onChange={handleChange}/>
+                    <input type="file" onChange={handleFileChange}/>
                     <input type={'submit'}/>
                 </form>
             </div>
         </div>
     )
 }
-export default Contact;
+export default Resume;

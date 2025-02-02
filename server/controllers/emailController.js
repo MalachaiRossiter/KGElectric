@@ -2,7 +2,7 @@ const { sendEmailService } = require('../services/emailService');
 const fs = require('fs');
 const path = require('path');
 
-module.exports.createBusinessRequest = async (req, res) => {
+module.exports.createContactRequest = async (req, res) => {
     const {firstName, lastName, business, email, phone, zipCode, timeFrame, message} = req.body;
 
     // Validation function called in function below

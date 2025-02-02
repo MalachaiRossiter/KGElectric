@@ -1,6 +1,6 @@
 const express = require('express');
 const multer = require('multer');
-const { createBusinessRequest, createResumeRequest } = require('../controllers/emailController');
+const { createContactRequest, createResumeRequest } = require('../controllers/emailController');
 
 const router = express.Router();
 
@@ -8,7 +8,7 @@ const router = express.Router();
 const upload = multer({ dest: 'uploads/' });
 
 // Define the route for sending the email
-router.post('/sendRequestForm', createBusinessRequest);
+router.post('/sendContactForm', createContactRequest);
 router.post('/sendResumeForm', upload.single('file'), createResumeRequest);
 
 module.exports = router; // Ensure the router is exported correctly

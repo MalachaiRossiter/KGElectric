@@ -43,7 +43,7 @@ const Navbar = (props) => {
                     </div>
                 </div>
                 <Link to={"/"}><h2>About Us</h2></Link>
-                <Link to={"/"}><h2>We're Hiring</h2></Link>
+                <Link to={"/Resume"}><h2>We're Hiring</h2></Link>
                 <a onClick={handleCopy}>(440) 812-9963</a>
                 <Link className='contactbtn' to={"/contact"}><h2>Contact Us</h2></Link>
             </div>
