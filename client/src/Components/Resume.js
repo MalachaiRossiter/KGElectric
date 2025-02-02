@@ -1,4 +1,4 @@
-import { useState, useEffect} from 'react';
+import { useState, useRef} from 'react';
 import { Link, useNavigate} from 'react-router-dom';
 import axios from 'axios';
 
@@ -13,6 +13,7 @@ const Resume = (props) => {
 
     const [file, setFile] = useState(null);
     const [errors, setErrors] = useState({});
+    const fileInputRef = useRef(null); // Reference to file input
 
     //handles change in any form inputs
     const handleChange = (e) => {
@@ -52,6 +53,11 @@ const Resume = (props) => {
             setFormItems({ firstName: '', lastName: '', email: '', message: '' });
             setFile(null);
             setErrors({});
+
+            // Clear the file input field
+            if (fileInputRef.current) {
+                fileInputRef.current.value = "";
+            }
             console.log('Form subbmitted Successfully: ', response.data);
         } catch (error) {
             //ff request fails, will check for validation errors in responce
@@ -110,7 +116,7 @@ const Resume = (props) => {
                                 {errors.message && <p className="error">{errors.message}</p>}
                             </div>
                     <textarea name={'message'} value={formItems.message} placeholder={"Please tell us about your project*"} onChange={handleChange}/>
-                    <input type="file" onChange={handleFileChange}/>
+                    <input type="file" ref={fileInputRef} onChange={handleFileChange}/>
                     <input type={'submit'}/>
                 </form>
             </div>
