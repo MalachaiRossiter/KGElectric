@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import '../CSS/Navbar.css';
 import logo from '../Assets/YouTube_logo.png';
 
-const Navbar = (props) => {
+const Footer = (props) => {
+
     useEffect(() => {
         if (Notification.permission !== 'granted') {
             Notification.requestPermission();
@@ -27,27 +27,18 @@ const Navbar = (props) => {
     };
 
     return (
-        <div className='navbar'>
+        <div className='footer-container'>
             <Link className='logoWrapper' to={"/"}>
                 <img className='logo' src={logo} alt={'logo'} />
             </Link>
-            <div className='linkWrapper'>
-                <div className='dropDown'>
-                    <button className='dropbtn'>Our Specialties
-                        <i className='fa fa-caret-down'></i>
-                    </button>
-                    <div className='dropDown-content'>
-                        <Link to={"/"}><h2>Link 3</h2></Link>
-                        <Link to={"/"}><h2>Link 3</h2></Link>
-                        <Link to={"/"}><h2>Link 3</h2></Link>
-                    </div>
-                </div>
-                <Link to={"/"}><h2>About Us</h2></Link>
-                <Link to={"/resume"}><h2>We're Hiring</h2></Link>
+            <div className='footer-links'>
+                <Link to={"/Resume"}><p>We're Hiring</p></Link>
+                <Link to={"/contact"}><p>Contact Us</p></Link>
                 <a onClick={handleCopy}>(440) 812-9963</a>
-                <Link className='contactbtn' to={"/contact"}><h2>Contact Us</h2></Link>
+                <p>Monday - Friday 8am to 5pm</p>
             </div>
         </div>
     )
 }
-export default Navbar;
+
+export default Footer;
