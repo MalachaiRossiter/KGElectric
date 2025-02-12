@@ -2,7 +2,7 @@
 .navbar {
     overflow: hidden;
     font-family: "Poppins";
-    margin: 75px 15%;
+    margin: 2.5%;
     display: flex;
     justify-content: right;
     align-items: center;
@@ -11,7 +11,7 @@
 
 /* Styling the logo */
 
-.logoWrapper {
+.logoWrapperNav {
     margin-right: auto;
 }
 
@@ -25,9 +25,9 @@
 }
 
 /* Set links */
-.navbar a{
+.linkWrapper a{
     float: left;
-    font-size: 20px;
+    font-size: 15px;
     color: white;
     text-align: center;
     padding: 14px 16px;
@@ -55,7 +55,7 @@
 
 /* Gradient transition on hover */
 .navbar a:hover, .dropDown:hover .dropbtn {
-    text-decoration: underline;
+    text-decoration: none;
     color: #fb8500;
 }
 
@@ -90,7 +90,6 @@
     color: black;
     padding: 10px 20px;
     border: 2px solid white;
-    border-radius: 10px;
     transition: border 0.3s ease;
 }
 

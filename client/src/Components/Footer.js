@@ -1,6 +1,7 @@
 import { useState, useEffect} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../Assets/YouTube_logo.png';
+import '../CSS/Footer.css';
 
 const Footer = (props) => {
 
@@ -27,8 +28,8 @@ const Footer = (props) => {
     };
 
     return (
-        <div className='footer-container'>
-            <Link className='logoWrapper' to={"/"}>
+        <div className='footer'>
+            <Link className='logoWrapperFooter' to={"/"}>
                 <img className='logo' src={logo} alt={'logo'} />
             </Link>
             <div className='footer-links'>

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../CSS/Navbar.css';
-import logo from '../Assets/YouTube_logo.png';
+
 
 const Navbar = (props) => {
     useEffect(() => {
@@ -28,9 +28,6 @@ const Navbar = (props) => {
 
     return (
         <div className='navbar'>
-            <Link className='logoWrapper' to={"/"}>
-                <img className='logo' src={logo} alt={'logo'} />
-            </Link>
             <div className='linkWrapper'>
                 <div className='dropDown'>
                     <button className='dropbtn'>Our Specialties

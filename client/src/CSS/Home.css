@@ -1,0 +1,55 @@
+.home-container{ 
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-image: url('../Assets/Multimeter.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+}
+
+.logoWrapper{
+    display:Flex;
+    justify-content: left;
+    margin-top: 40px;
+    margin-left: 40px;
+}
+
+.home-text-container{
+    width: 40vw;
+    padding: 20vh 20vw 20vw 20vw;
+    color: white;
+    font-weight: 700;
+}
+
+.home-text-container h3{
+    color: #e2e2e2;
+    font-size: 2.5vh;
+}
+
+.home-text-container h1{
+    font-size: 7.5vh;
+}
+
+.word-transition {
+    display: inline-block;
+    position: relative;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+.fade-in {
+    opacity: 1;
+    transform: translateY(0); /* Ends at normal position */
+}
+
+.fade-out {
+    opacity: 0;
+    transform: translateY(20px); /* Moves down while disappearing */
+}
+
+.fade-in-start {
+    opacity: 0;
+    transform: translateY(-20px); /* Starts above before falling */
+}
