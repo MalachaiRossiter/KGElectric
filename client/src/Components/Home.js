@@ -3,8 +3,8 @@ import {Link} from 'react-router-dom';
 import logo from '../Assets/YouTube_logo.png';
 import '../CSS/Home.css';
 
-const words = ["Electric", "Automation", "Engineering"];
-const colors = ["#fb8500", "#ffb703", "#28d4ff"];
+const words = ["Electric", "Engineering", "Automation"];
+const colors = ["#fb8500", "#fb8500", "#fb8500"];
 
 const Home = (props) => {
     const [scrollY, setScrollY] = useState(0);

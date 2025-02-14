@@ -1,98 +1,114 @@
-/* Navbar Container */
 .navbar {
-    overflow: hidden;
-    font-family: "Poppins";
-    margin: 2.5%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #0c0c0c;
+    height: 100%;
+    width: 200px;
+    padding: 40px;
+    transition: 0.25s ease-in;
+    z-index: 2;
+}
+
+.navbar.closed {
+    transform: translateX(100%);
+}
+
+.navbar.open {
+    transform: translateX(0);
+}
+
+.header-box {
     display: flex;
-    justify-content: right;
+    justify-content: space-between;
     align-items: center;
-    overflow: hidden;
+    padding-bottom: 2.5vh;
 }
 
-/* Styling the logo */
-
-.logoWrapperNav {
-    margin-right: auto;
-}
-
-.logo {
-    height: 40px;
-}
-
-.linkWrapper {
-    display: flex;
-    align-items: center;
-}
-
-/* Set links */
-.linkWrapper a{
-    float: left;
-    font-size: 15px;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    transition: color 0.5s;
-}
-
-.dropDown {
-    float: left;
-    overflow: hidden;
-}
-
-/* Dropdown button */
-.dropDown .dropbtn {
-    font-size: 20px;
-    border: none;
-    outline: none;
-    color: white;
-    padding: 14px 16px;
-    background-color: inherit;
-    font-family: inherit;
-    margin: 0;
-    transition: color 0.5s;
-}
-
-/* Gradient transition on hover */
-.navbar a:hover, .dropDown:hover .dropbtn {
-    text-decoration: none;
+h3 {
     color: #fb8500;
 }
 
-/* Dropdown content (hidden by default) */
-.dropDown-content {
-    display: none;
+.nav-link {
+    color: #e2e2e2;
+    font-size: 24px;
+    text-decoration: none;
+    transition: 0.25s ease-in;
+}
+
+.nav-link h2 {
+    margin-top: 2.5vh;
+}
+
+.nav-link:hover {
+    color: #fb8500
+}
+
+/* creates close button */
+
+.close-button {
+    width: 27px;
+    height: 27px;
+    background-color: black;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.close-button::before,
+.close-button::after {
+    content: '';
     position: absolute;
-    background-color: #0f0f0f;
-    min-width: 160px;
-    border-radius: 15px;
-    z-index: 1;
+    width: 16px;
+    height: 2px;
+    background-color: white;
 }
 
-/* Links inside the dropdown */
-.dropDown-content a {
-    float: none;
+.close-button::before {
+    transform: rotate(45deg);
+}
+
+.close-button::after {
+    transform: rotate(-45deg);
+}
+
+/* Open button */
+
+.open-button {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    background-color: black;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.25s ease-in;
+}
+
+.open-button h3 {
     color: white;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-    transition: color 0.5s;
+    padding-right: 10px;
 }
 
-/* Show the dropdown menu on hover */
-.dropDown:hover .dropDown-content {
-    display: block;
+.open-button :hover{
+    color: #fb8500;
 }
 
-.contactbtn {
-    text-decoration: none;
-    color: black;
-    padding: 10px 20px;
-    border: 2px solid white;
-    transition: border 0.3s ease;
+/* Hamburger menu */
+.hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
-.contactbtn:hover {
-    border: 2px solid #fb8500;
+.hamburger-menu div {
+    width: 20px;
+    height: 2px;
+    background-color: white;
 }

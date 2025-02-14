@@ -7,3 +7,6 @@ https://freelancewritersden.com/
 
 
 FONT - Poppins
+
+preview.colorlib.com/theme/glint
+preview.colorlib.com/theme/industries
