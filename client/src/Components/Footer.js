@@ -32,11 +32,17 @@ const Footer = (props) => {
             <Link className='logoWrapperFooter' to={"/"}>
                 <img className='logo' src={logo} alt={'logo'} />
             </Link>
-            <div className='footer-links'>
-                <Link to={"/Resume"}><p>We're Hiring</p></Link>
-                <Link to={"/contact"}><p>Contact Us</p></Link>
-                <a onClick={handleCopy}>(440) 812-9963</a>
-                <p>Monday - Friday 8am to 5pm</p>
+            <div className='footer-links-container'>
+                <Link to={"/Resume"} className='footer-links'><p>We're Hiring</p></Link>
+                <Link to={"/contact"} className='footer-links'><p>Contact Us</p></Link>
+                <div className='footer-links'>
+                        <p onClick={handleCopy} id='phone-number'>PHONE NUMBER:<br/>
+                        (440) 812-9963</p>
+                    </div>
+                    <div className='footer-links'>
+                        <p>ADDRESS:<br/>
+                        7012 Hatches Corners RD, CONNEAUT OH</p>
+                    </div>
             </div>
         </div>
     )

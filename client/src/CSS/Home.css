@@ -57,3 +57,58 @@
     opacity: 0;
     transform: translateY(-20px); /* Starts above before falling */
 }
+
+/* contact button */
+
+.button-container{
+    display: flex;
+    margin-top: 2.5vh;
+}
+
+.contactbtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    padding: 10px 20px;
+    color: white;
+    background-color: #fb860000;
+    font-size: 16px;
+    text-decoration: none;
+    border: solid 2px white;
+    transition: 0.25s ease-in;
+}
+
+.contactbtn:hover{
+    color: #000000;
+    background-color: #fb8500;
+    border-color: #fb8500;
+}
+
+.scroll {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 40px;
+    margin-right: 40px;
+    text-decoration: none;
+    color: white;
+    transition: 0.25s ease-in;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Space between arrow and text */
+}
+
+.arrow {
+    width: 12px;
+    height: 12px;
+    margin-bottom: 5px;
+    border-left: 3px solid white;
+    border-bottom: 3px solid white;
+    transform: rotate(-45deg); /* Rotates to point downward */
+}
+
+.scroll:hover{
+    color: #fb8500;
+}

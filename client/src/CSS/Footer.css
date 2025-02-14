@@ -1,7 +1,7 @@
 .footer {
     overflow: hidden;
     font-family: "Poppins";
-    height: 15vh;
+    padding: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,11 +10,25 @@
 }
 
 .logoWrapperFooter{ 
-    padding-right: 1vw;
+    padding-right: 10px;
+}
+
+.footer-links-container {
+    padding-left: 10px;
+    border-left: solid white 1px;
 }
 
 .footer-links {
-    padding-left: 1vw;
-    border-left: solid white 1px;
+    color: rgb(99, 99, 99);
+    text-decoration: none;
+    transition: 0.25s ease-in;
+}
+
+.footer-links:hover {
+    color: #fb8500
+}
+
+.footer-links p{
+    margin: 10px 0px;  
 }
 

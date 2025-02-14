@@ -53,10 +53,14 @@ const Home = (props) => {
                 {/* Electric, Automation, Engineering  cylce through*/}
                 <h1>We are an electrical engineering company that excels in bringing your visions to life</h1>
                 <div className='button-container'>
-                    <Link className='contactbtn' to={"/contact"}><h2>Contact Us</h2></Link>
-                    <Link className='contactbtn' to={"/contact"}><h2>Contact Us</h2></Link>
+                    <Link className='contactbtn' to={"/contact"}><h2>START A PROJECT</h2></Link>
+                    <Link className='contactbtn' to={"/contact"}><h2>LEARN MORE</h2></Link>
                 </div>
             </div>
+                <Link className='scroll' to={'#about'}>
+                    <div className='arrow'></div>
+                    <h2>SCROLL DOWN</h2>
+                </Link>
         </div>
     )
 }
