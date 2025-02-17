@@ -1,0 +1,150 @@
+.about-container {
+    width: 100%;
+    padding: 100px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fb8500;
+}
+
+.about-content {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.about-header {
+    text-align: center;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    border-bottom: 3px solid rgb(255, 255, 255); /* Adjust thickness and color as needed */
+}
+
+.about-header h3, h1 {
+    font-weight: 700;
+}
+
+.about-header h3 {
+    padding-bottom: 5px;
+    font-size: 24px;
+    color: black;
+}
+
+.about-header h1 {
+    color: white;
+    font-size: 60px;
+}
+
+.about-container p {
+    font-family: "Domine", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 2;
+}
+
+.specialties-container {
+    display: flex;
+    width: 60vw; /* 60% of the screen width */
+    height: 60vh; /* 60% of the screen height */
+    justify-content: space-between; /* Space boxes evenly */
+    align-items: center;
+}
+
+.specialties-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    flex: 1; /* Ensures equal space for each box */
+    text-align: center;
+    padding: 20px;
+    border-left: 1px solid rgba(255, 255, 255, 0.404); /* White line between each box */
+}
+
+/* Remove left border for the first box to avoid double border effect */
+.specialties-box:first-child {
+    border-left: none;
+}
+
+.specialties-box-header {
+    padding-bottom: 30px;
+}
+
+.specialties-box-header h3 {
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+}
+
+.specialties-icon {
+    width: 100px;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .about-header h1 {
+        font-size: 50px;
+    }
+
+    .about-header h3 {
+        font-size: 22px;
+    }
+
+    .about-container p {
+        font-size: 20px;
+    }
+
+    .specialties-container {
+        width: 80vw;
+        height: 50vh;
+    }
+
+    .specialties-box-header h3 {
+        font-size: 26px;
+    }
+
+    .specialties-icon {
+        width: 85px;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-header h1 {
+        font-size: 36px;
+    }
+
+    .about-header h3 {
+        font-size: 20px;
+    }
+
+    .about-container p {
+        font-size: 16px;
+    }
+
+    .about-content {
+        width: 80%;
+    }
+
+    .specialties-container {
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+    }
+
+    .specialties-box {
+        margin-bottom: 20px;
+        padding: 15px;
+    }
+
+    .specialties-box-header h3 {
+        font-size: 22px;
+    }
+
+    .specialties-icon {
+        width: 70px;
+    }
+}

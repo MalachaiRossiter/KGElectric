@@ -1,0 +1,147 @@
+.services-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 100px 0px;
+}
+
+.services-header {
+    width: 60%;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+    font-weight: 700;
+    border-bottom: solid rgba(255, 255, 255, 0.363) 1px;
+}
+
+.services-header h3 {
+    font-size: 24px;
+    padding-bottom: 10px;
+}
+
+.services-header h2 {
+    font-size: 48px;
+    color: white;
+}
+
+.service-items-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    grid-template-rows: repeat(3, auto); /* 3 rows */
+    gap: 20px; /* Space between items */
+    width: 80%;
+    max-width: 60%;
+    margin: 0 auto;
+}
+
+.service-items-box {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.service-items-box:hover {
+    transform: translateY(-5px);
+}
+
+.specialties-icon {
+    width: 75px;
+    margin: 25px;
+}
+
+.service-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    text-align: left;
+}
+
+.service-text h3 {
+    font-size: 30px;
+    font-weight: 700;
+    padding-bottom: 24px;
+}
+
+.service-text p {
+    color: #e2e2e2;
+    font-family: "Domine", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 2;
+    min-height: 60px;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .services-header {
+        width: 80%;
+    }
+
+    .services-header h2 {
+        font-size: 40px;
+    }
+
+    .service-items-container {
+        width: 90%;
+        max-width: 80%;
+    }
+
+    .service-items-box {
+        padding: 15px;
+    }
+
+    .service-text h3 {
+        font-size: 26px;
+    }
+
+    .service-text p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    .services-header {
+        width: 90%;
+    }
+
+    .services-header h2 {
+        font-size: 32px;
+    }
+
+    .service-items-container {
+        grid-template-columns: 1fr; /* Single column layout */
+        width: 100%;
+        max-width: 90%;
+    }
+
+    .service-items-box {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .specialties-icon {
+        width: 60px;
+        margin: 15px;
+    }
+
+    .service-text {
+        text-align: center;
+        align-items: center;
+    }
+
+    .service-text h3 {
+        font-size: 24px;
+    }
+
+    .service-text p {
+        font-size: 14px;
+    }
+}

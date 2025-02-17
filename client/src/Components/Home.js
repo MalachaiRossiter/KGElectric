@@ -3,6 +3,9 @@ import {Link} from 'react-router-dom';
 import logo from '../Assets/YouTube_logo.png';
 import '../CSS/Home.css';
 
+import About from '../Components/About';
+import Services from '../Components/Services';
+
 const words = ["Electric", "Engineering", "Automation"];
 const colors = ["#fb8500", "#fb8500", "#fb8500"];
 
@@ -37,6 +40,7 @@ const Home = (props) => {
     }, []);
 
     return (
+    <div>
         <div className='home-container' style={{ backgroundPositionY: `calc(50% + ${scrollY * 0.5}px)` }}>
             <Link className='logoWrapper' to={"/"}>
                 <img className='logo' src={logo} alt={'logo'} />
@@ -61,8 +65,10 @@ const Home = (props) => {
                     <div className='arrow'></div>
                     <h2>SCROLL DOWN</h2>
                 </Link>
-                
         </div>
+        <About/>
+        <Services/>
+    </div>
     )
 }
 export default Home;
