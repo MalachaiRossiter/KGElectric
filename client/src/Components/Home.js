@@ -61,6 +61,7 @@ const Home = (props) => {
                     <div className='arrow'></div>
                     <h2>SCROLL DOWN</h2>
                 </Link>
+                
         </div>
     )
 }

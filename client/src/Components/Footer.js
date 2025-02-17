@@ -12,7 +12,7 @@ const Footer = (props) => {
     }, []);
 
     const handleCopy = () => {
-        navigator.clipboard.writeText('(440) 228-0966')
+        navigator.clipboard.writeText('(440) 594-1460')
         .then(() => {
             if (Notification.permission === 'granted') {
                 new Notification('Success', {
@@ -37,7 +37,7 @@ const Footer = (props) => {
                 <Link to={"/contact"} className='footer-links'><p>Contact Us</p></Link>
                 <div className='footer-links'>
                         <p onClick={handleCopy} id='phone-number'>PHONE NUMBER:<br/>
-                        (440) 812-9963</p>
+                        (440) 594-1460</p>
                     </div>
                     <div className='footer-links'>
                         <p>ADDRESS:<br/>

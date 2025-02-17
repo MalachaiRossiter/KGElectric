@@ -11,10 +11,9 @@
 }
 
 .logoWrapper{
-    display:Flex;
-    justify-content: left;
-    margin-top: 40px;
-    margin-left: 40px;
+    position:absolute;
+    top: 40px;
+    left: 40px;
 }
 
 .logo {
@@ -111,4 +110,86 @@
 
 .scroll:hover{
     color: #fb8500;
+}
+
+@media (max-width: 1200px) {
+
+    /* Center align the home container */
+    .home-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;  /* Center vertically */
+        align-items: center;  /* Center horizontally */
+        text-align: center; /* Ensure text is centered */
+        height: 100vh; /* Make sure it takes full height */
+        width: 100%;
+    }
+
+    /* Center text container */
+    .home-text-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center; /* Ensures text inside is centered */    
+        width: 60%;
+    }
+
+    /* Ensure h3 and h1 are centered */
+    .home-text-container h3, 
+    .home-text-container h1 {
+        text-align: center;
+    }
+
+    .home-text-container h1 {
+        font-size: 40px;
+        text-align: center; /* Ensure text is centered */
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: center; /* Center buttons horizontally */
+        align-items: center; /* Align vertically */
+        gap: 20px; /* Adds spacing between buttons */
+        width: 100%; /* Make it span the full width */
+        margin-top: 20px; /* Add space above buttons */
+    }
+
+    /* Ensure buttons are properly spaced and centered */
+    .contactbtn {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 20px;
+        min-width: 150px; /* Ensures buttons have a minimum width */
+    }
+}
+
+@media (max-width: 600px) {
+    .scroll{
+        display: none;
+    }
+
+    .home-text-container h1 {
+        font-size: 36px;
+        text-align: center; /* Ensure text is centered */
+    }
+
+    .button-container {
+        display: flex;  /* Ensure it's a flex container */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%; /* Ensure it spans the full width */
+        text-align: center; /* Ensure inline elements are centered */
+    }
+
+    .contactbtn {
+        display: flex; /* Ensures buttons take full space */
+        justify-content: center;
+        align-items: center;
+        width: auto; /* Prevents buttons from stretching too much */
+        min-width: 150px; /* Ensures buttons have a minimum width */
+    }
 }

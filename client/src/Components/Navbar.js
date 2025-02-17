@@ -12,7 +12,7 @@ const Navbar = () => {
     }, []);
 
     const handleCopy = () => {
-        navigator.clipboard.writeText('(440) 228-0966')
+        navigator.clipboard.writeText('(440) 594-1460')
         .then(() => {
             if (Notification.permission === 'granted') {
                 new Notification('Success', {
@@ -52,7 +52,7 @@ const Navbar = () => {
                 <div className='nav-extra-text'>
                     <div className='extra-text-container' id='phone-number'>
                         <p>PHONE NUMBER:</p>
-                        <p onClick={handleCopy}>(440) 812-9963</p>
+                        <p onClick={handleCopy}>(440) 594-1460</p>
                     </div>
                     <div className='extra-text-container'>
                         <p>ADDRESS:</p>
