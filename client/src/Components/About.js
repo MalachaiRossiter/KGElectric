@@ -2,6 +2,7 @@ import '../CSS/About.css';
 import electric from '../Assets/lighting.png';
 import engineering from '../Assets/setting.png';
 import automation from '../Assets/bot.png';
+import { useEffect, useRef, useState } from "react";
 
 // Reusable Specialties Component
 const SpecialtyBox = ({ icon, title, description }) => {
@@ -17,6 +18,36 @@ const SpecialtyBox = ({ icon, title, description }) => {
 };
 
 const About = () => {
+    const aboutRef = useRef(null);
+    const specialtiesRef = useRef(null);
+    const [isAboutVisible, setIsAboutVisible] = useState(false);
+    const [isSpecialtiesVisible, setIsSpecialtiesVisible] = useState(false);
+
+    useEffect(() => {
+        const createObserver = (ref, setState) => {
+            const observer = new IntersectionObserver(
+                ([entry]) => {
+                    if (entry.isIntersecting) {
+                        setState(true);
+                        observer.disconnect(); // Stops observing after first appearance
+                    }
+                },
+                { threshold: 0.25 }
+            );
+
+            if (ref.current) observer.observe(ref.current);
+            return () => observer.disconnect();
+        };
+
+        const aboutObserverCleanup = createObserver(aboutRef, setIsAboutVisible);
+        const specialtiesObserverCleanup = createObserver(specialtiesRef, setIsSpecialtiesVisible);
+
+        return () => {
+            aboutObserverCleanup();
+            specialtiesObserverCleanup();
+        };
+    }, []);
+
     const specialtiesData = [
         { title: "Electric", description: "Velit enim sint aliqua ad nisi incididunt exercitation fugiat veniam ipsum mollit ex dolore enim.", icon: electric },
         { title: "Engineering", description: "Velit enim sint aliqua ad nisi incididunt exercitation fugiat veniam ipsum mollit ex dolore enim.", icon: engineering },
@@ -25,7 +56,7 @@ const About = () => {
 
     return (
         <div className='about-container'>
-            <div className='about-content'>
+            <div ref={aboutRef} className={`about-content ${isAboutVisible ? "fade-in" : ""}`}>
                 <div className='about-header'>
                     <h3>HELLO THERE</h3>
                     <h1>We are K&G Electric</h1>
@@ -42,7 +73,7 @@ const About = () => {
                 </p>
             </div>
             
-            <div className='specialties-container'>
+            <div ref={specialtiesRef} className={`specialties-container ${isSpecialtiesVisible ? "fade-in" : ""}`}>
                 {specialtiesData.map((specialty, index) => (
                     <SpecialtyBox 
                         key={index} 

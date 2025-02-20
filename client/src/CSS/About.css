@@ -15,6 +15,15 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    /* Set for Fade in Animation */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+.about-content.fade-in{
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .about-header {
@@ -53,7 +62,17 @@
     height: 60vh; /* 60% of the screen height */
     justify-content: space-between; /* Space boxes evenly */
     align-items: center;
+    /* Set for Fade in Animation */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
 }
+
+.specialties-container.fade-in{
+    opacity: 1;
+    transform: translateY(0);
+}
+
 
 .specialties-box {
     display: flex;

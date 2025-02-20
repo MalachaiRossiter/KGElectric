@@ -1,6 +1,6 @@
 import { useState, useEffect} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import logo from '../Assets/YouTube_logo.png';
+import logo from '../Assets/LogoFullText.png';
 import '../CSS/Footer.css';
 
 const Footer = (props) => {
