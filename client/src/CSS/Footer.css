@@ -19,6 +19,7 @@
 }
 
 .footer-links {
+    max-width: 200px;
     color: rgb(99, 99, 99);
     text-decoration: none;
     transition: 0.25s ease-in;

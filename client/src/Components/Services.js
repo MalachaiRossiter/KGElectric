@@ -1,5 +1,6 @@
 import '../CSS/Services.css';
 import automation from '../Assets/bot.png';
+import { useEffect, useRef, useState} from 'react';
 
 // Reusable ServiceBox Component
 const ServiceBox = ({ img, title, description }) => {
@@ -24,9 +25,36 @@ const servicesData = [
 ];
 
 const Services = () => {
+    const servicesRef = useRef(null);
+    const [isServiceVisible, setIsServiceVisible] = useState(false);
+
+    useEffect(() => {
+        const createObserver = (ref, setState) => {
+            const observer = new IntersectionObserver(
+                ([entry]) => {
+                    if (entry.isIntersecting) {
+                        setState(true);
+                        observer.disconnect();
+                    }
+                },
+                { threshold: 0.25 }
+            );
+    
+            if (ref.current) observer.observe(ref.current);
+            return () => observer.disconnect();
+        };
+    
+        const serviceObserverCleanup = createObserver(servicesRef, setIsServiceVisible);
+    
+        return () => {
+            serviceObserverCleanup();
+        };
+    }, []);
+
+
     return (
         <div className='services-container'>
-            <div className='services-header'>
+            <div ref={servicesRef} className={`services-header ${isServiceVisible ? "fade-in" : ""}`}>
                 <h3>WHAT WE DO</h3>
                 <h2>We're prepared to ensure that your facilities
                     stay up and running around the clock</h2>

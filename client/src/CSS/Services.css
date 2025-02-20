@@ -14,6 +14,14 @@
     text-align: center;
     font-weight: 700;
     border-bottom: solid rgba(255, 255, 255, 0.363) 1px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+.services-header.fade-in{
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .services-header h3 {
