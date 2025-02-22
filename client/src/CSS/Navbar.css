@@ -29,15 +29,15 @@ h3 {
     color: #fb8500;
 }
 
+.nav-guide-links h2{
+    margin-top: 2.5vh;
+}
+
 .nav-link {
     color: #e2e2e2;
     font-size: 24px;
     text-decoration: none;
     transition: 0.25s ease-in;
-}
-
-.nav-link h2 {
-    margin-top: 2.5vh;
 }
 
 .nav-link:hover {
@@ -130,18 +130,18 @@ h3 {
     background-color: white;
 }
 
-/* fade in when opened */
-.navbar .nav-link h2, 
-.navbar .nav-extra-text, 
-.navbar .header-box h3 {
-    opacity: 0;
-    transform: translateX(10px);
-    transition: opacity 1s ease-out, transform 1s ease-out;
+.header-box, .nav-guide-links, .nav-extra-text {
+    opacity: 0; /* Initially hidden */
+    transform: translateX(20px); /* Start slightly off-screen */
+    transition: opacity 0.5s ease-in, transform 0.5s ease-in;
 }
 
-.navbar.open .nav-link h2, 
-.navbar.open .nav-extra-text, 
-.navbar.open .header-box h3 {
-    opacity: 1;
-    transform: translateX(0);
+.header-box.slide-in, .nav-guide-links.fade-in, .nav-extra-text.fade-in {
+    opacity: 1; /* Fully visible */
+    transform: translateX(0); /* Move into place */
+}
+
+.header-box.slide-out, .nav-guide-links.fade-out, .nav-extra-text.fade-out {
+    opacity: 0; /* Fade out */
+    transform: translateX(20px); /* Slide out */
 }

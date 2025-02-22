@@ -6,7 +6,7 @@ import '../CSS/Home.css';
 import About from '../Components/About';
 import Services from '../Components/Services';
 import ProjectPannels from '../Components/ProjectPannels';
-import Contact from '../Components/Contact';
+import Contact from '../Components/Contact'
 
 const words = ["Electric", "Engineering", "Automation"];
 const colors = ["#fb8500", "#fb8500", "#fb8500"];
@@ -41,8 +41,15 @@ const Home = (props) => {
         return () => clearInterval(interval);
     }, []);
 
+    const scrollToSection = (id) => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+        }
+    };
+
     return (
-    <div>
+    <div id="#home">
         <div className='home-container' style={{ backgroundPositionY: `calc(50% + ${scrollY * 0.5}px)` }}>
             <Link className='logoWrapper' to={"/"}>
                 <img className='logo' src={logo} alt={'logo'} />
@@ -59,19 +66,30 @@ const Home = (props) => {
                 {/* Electric, Automation, Engineering  cylce through*/}
                 <h1>We are an electrical engineering company that excels in bringing your visions to life</h1>
                 <div className='button-container'>
-                    <Link className='contactbtn' to={"/contact"}><h2>START A PROJECT</h2></Link>
-                    <Link className='contactbtn' to={"/contact"}><h2>LEARN MORE</h2></Link>
+                    <h2 className='contactbtn' onClick={() => scrollToSection("contact")}>START A PROJECT</h2>
+                    <h2 className='contactbtn' onClick={() => scrollToSection("about")}>LEARN MORE</h2>
                 </div>
             </div>
-                <Link className='scroll' to={'#about'}>
+                <div className='scroll' onClick={() => scrollToSection("about")}>
                     <div className='arrow'></div>
                     <h2>SCROLL DOWN</h2>
-                </Link>
+                </div>
         </div>
-        <About/>
-        <Services/>
-        <ProjectPannels/>
-        <Contact/>
+        <div id="about">
+            <About />
+        </div>
+    
+        <div id="services">
+            <Services />
+        </div>
+    
+        <div id="projects">
+            <ProjectPannels />
+        </div>
+    
+        <div id="contact">
+            <Contact />
+        </div>
     </div>
     )
 }

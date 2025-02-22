@@ -1,24 +1,22 @@
 import './App.css';
-import Contact from './Components/Contact';
 import Resume from './Components/Resume';
 import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
-import { BroswerRouter, Routes, Route, BrowserRouter } from 'react-router-dom';
-import axios from 'axios';
-
+import ScrollToTop from './Components/ScrollToTop';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'; // Corrected here
 import Home from './Components/Home';
 
 function App() {
   return (
     <div className='App'>
       <BrowserRouter>
-        <Navbar/>
+        <Navbar />
+        <ScrollToTop />
         <Routes>
-          <Route path="/" element={<Home/>}/>
-          <Route path="/contact" element={<Contact/>}/>
-          <Route path="/resume" element={<Resume/>}/>
+          <Route path="/" element={<Home />} />
+          <Route path="/resume" element={<Resume />} />
         </Routes>
-        <Footer/>
+        <Footer />
       </BrowserRouter>
     </div>
   );

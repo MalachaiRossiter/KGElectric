@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../CSS/Navbar.css';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (Notification.permission !== 'granted') {
@@ -13,23 +14,42 @@ const Navbar = () => {
 
     const handleCopy = () => {
         navigator.clipboard.writeText('(440) 594-1460')
-        .then(() => {
-            if (Notification.permission === 'granted') {
-                new Notification('Success', {
-                    body: 'Phone number copied to clipboard!',
-                });
-            } else {
-                alert('Phone number copied to clipboard!');
-            }
-        })
-        .catch(err => {
-            console.error('Failed to copy: ', err);
-        });
+            .then(() => {
+                if (Notification.permission === 'granted') {
+                    new Notification('Success', {
+                        body: 'Phone number copied to clipboard!',
+                    });
+                } else {
+                    alert('Phone number copied to clipboard!');
+                }
+            })
+            .catch(err => {
+                console.error('Failed to copy: ', err);
+            });
     };
+
+    const scrollToSection = (id) => {
+        if (id === "home") {
+            navigate('/'); // Navigate to the home page
+            setTimeout(() => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            }, 0);
+        } else {
+            navigate('/'); // Always navigate to the home page for scrolling
+            setTimeout(() => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                }
+            }, 0);
+        }
+        setIsOpen(false); // Close the menu after clicking
+    };
+    
 
     return (
         <div>
-            <div className='open-button' onClick={() =>setIsOpen(true)}>
+            <div className='open-button' onClick={() => setIsOpen(true)}>
                 <h3>MENU</h3>
                 <div className='hamburger-menu'>
                     <div></div>
@@ -38,18 +58,21 @@ const Navbar = () => {
                 </div>
             </div>
             <div className={`navbar ${isOpen ? 'open' : 'closed'}`}>
-                <div className='header-box'>
+                <div className={`header-box ${isOpen ? 'slide-in' : 'slide-out'}`}>
                     <h3>NAVIGATION</h3>
-                    <div className="close-button" onClick={() => setIsOpen(false)}></div>
+                    <div className='close-button' onClick={() => setIsOpen(false)}></div>
                 </div>
-                <Link className='nav-link' to={"/"}><h2>Home</h2></Link>
-                <Link className='nav-link' to={"/"}><h2>About Us</h2></Link>
-                <Link className='nav-link' to={"/"}><h2>Services</h2></Link>
-                <Link className='nav-link' to={"/"}><h2>Clients</h2></Link>
-                <Link className='nav-link' to={"/"}><h2>Works</h2></Link>
-                <Link className='nav-link' to={"/contact"}><h2>Contact Us</h2></Link>
-                <Link className='nav-link' to={"/resume"}><h2>We're Hiring</h2></Link>
-                <div className='nav-extra-text'>
+                <div className={`nav-guide-links ${isOpen ? 'fade-in' : 'fade-out'}`}>
+                <h2 className='nav-link' onClick={() => scrollToSection("home")}>Home</h2>
+                    <h2 className='nav-link' onClick={() => scrollToSection("about")}>About Us</h2>
+                    <h2 className='nav-link' onClick={() => scrollToSection("services")}>Services</h2>
+                    <h2 className='nav-link' onClick={() => scrollToSection("projects")}>Works</h2>
+                    <h2 className='nav-link' onClick={() => scrollToSection("contact")}>Contact Us</h2>
+                    <Link className='nav-link' to="/resume" onClick={() => setIsOpen(false)}>
+                        <h2>We're Hiring</h2>
+                    </Link>
+                </div>
+                <div className={`nav-extra-text ${isOpen ? 'fade-in' : 'fade-out'}`}>
                     <div className='extra-text-container' id='phone-number'>
                         <p>PHONE NUMBER:</p>
                         <p onClick={handleCopy}>(440) 594-1460</p>

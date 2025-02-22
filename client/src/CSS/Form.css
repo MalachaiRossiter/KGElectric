@@ -11,7 +11,7 @@
     font-style: normal;
 }
 
-.contact-container{
+.contact-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,10 +22,9 @@
     background-size: cover;
     background-position: center;
     overflow: hidden;
-
 }
 
-.contact-form-header{
+.contact-form-header {
     font-weight: 700;
 }
 
@@ -39,14 +38,14 @@
     color: white;
 }
 
-.contact-form-container{
+.contact-form-container {
     display: flex;
     justify-content: center;
     width: 60%;
     margin: 20px;
 }
 
-.contact-form-container h3{
+.contact-form-container h3 {
     font-weight: 700;
     padding-bottom: 40px;
     color: white;
@@ -55,15 +54,15 @@
 .contact-form {
     display: flex;
     flex-direction: column;
-    /* width: 100%; Ensures form doesn’t shrink */
+    width: 60%;
     padding: 40px;
     text-align: left;
     color: white;
     background-color: rgba(0, 0, 0, 0.5);
-    box-sizing: border-box; /* Ensures padding is included in width */
+    box-sizing: border-box;
 }
 
-.double-input{
+.double-input {
     display: flex;
     width: 100%;
     gap: 20px;
@@ -71,11 +70,11 @@
 
 .field-container {
     width: 100%;
-    flex: 1; /* Ensures consistent width for both inputs */
+    flex: 1;
 }
 
 .double-input .field-container {
-    flex: 1; /* Ensures equal width */
+    flex: 1;
 }
 
 .contact-form input,
@@ -89,8 +88,8 @@
     color: white;
     border-bottom: solid 1px white;
     font-size: 16px;
-    box-sizing: border-box; /* Ensures width includes padding */
-    padding-left: 0; /* Remove left padding for flush alignment */
+    box-sizing: border-box;
+    padding-left: 0;
 }
 
 .contact-form textarea {
@@ -101,62 +100,62 @@
 .contact-form input:focus,
 .contact-form select:focus,
 .contact-form textarea:focus {
-    outline: none; 
-    border-bottom: solid 1px #fb8500; 
+    outline: none;
+    border-bottom: solid 1px #fb8500;
 }
 
-.submitbtn{ 
+.submitbtn {
     background-color: #fb8500;
     font-weight: 700;
-    font-size: 16px; 
+    font-size: 16px;
     padding: 10px 0px;
     border: none;
 }
 
 /* Hide the default file input button */
 input[type="file"] {
-    display: none; /* Hide the default button */
+    display: none;
 }
 
 /* Custom file upload button */
 .custom-file-upload {
     display: inline-block;
-    border: 1px solid white; /* 1px white border */
-    background-color: transparent; /* Transparent background */
-    color: white; /* Text color */
-    padding: 10px 20px; /* Padding */
-    cursor: pointer; /* Pointer cursor on hover */
-    border-radius: 5px; /* Optional: rounded corners */
+    border: 1px solid white;
+    background-color: transparent;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
 /* Custom hover effect */
 .custom-file-upload:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* Optional: light background on hover */
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .file-name {
-    margin-left: 10px; /* Space between the button and the file name */
-    color: white; /* Change the text color as needed */
+    margin-left: 10px;
+    color: white;
 }
 
 .error {
-    color: #ff4d4d; 
-    font-size: 12px; 
-    position: absolute; 
-    bottom: -18px; 
-    left: 0; 
-    width: 100%; 
+    color: #ff4d4d;
+    font-size: 12px;
+    position: absolute;
+    bottom: -18px;
+    left: 0;
+    width: 100%;
 }
 
 .field-container {
-    position: relative; 
-    margin-bottom: 30px; 
+    position: relative;
+    margin-bottom: 30px;
 }
 
 .success-message {
-    color: green; /* Green text for success messages */
-    margin-top: 10px; /* Space above the message */
-    font-size: 16px; /* Adjust font size as needed */
+    color: green;
+    margin-top: 10px;
+    font-size: 16px;
 }
 
 .contact-info {
@@ -166,19 +165,70 @@ input[type="file"] {
     background-color: rgba(0, 0, 0, 0.747);
 }
 
-.contact-block{
+.contact-block {
     padding-bottom: 30px;
 }
 
-.contact-info h4{
+.contact-info h4 {
     padding-bottom: 24px;
     font-size: 16px;
     font-weight: 700;
-    color: #fb8500
+    color: #fb8500;
 }
 
-.contact-info p{
+.contact-info p {
     padding-bottom: 16px;
     color: #e2e2e2;
     line-height: 16px;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+    .contact-form-container {
+        width: 80%; /* Adjust width for medium screens */
+    }
+    
+    .contact-form {
+        padding: 30px; /* Reduce padding */
+    }
+    
+    .contact-form-header h1 {
+        font-size: 36px; /* Adjust font size */
+    }
+
+    .contact-form-header h3 {
+        font-size: 20px; /* Adjust font size */
+    }
+}
+
+@media (max-width: 600px) {
+    .contact-form-container {
+        flex-direction: column;
+        width: 90%; /* Adjust width for small screens */
+    }
+
+    .contact-form {
+        width: 100%;
+        padding: 20px; /* Further reduce padding */
+    }
+    
+    .contact-form-header h1 {
+        font-size: 28px; /* Adjust font size */
+    }
+
+    .contact-form-header h3 {
+        font-size: 18px; /* Adjust font size */
+    }
+
+    .double-input {
+        flex-direction: column; /* Stack inputs vertically */
+    }
+
+    .double-input .field-container {
+        width: 100%; /* Ensure full width */
+    }
+
+    .contact-info{
+        max-width: 90%;
+    }
 }
