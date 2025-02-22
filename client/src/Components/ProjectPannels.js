@@ -3,11 +3,38 @@ import BannerSafetyInstall from '../Assets/BannerSafetyInstall.jpg';
 import EquipmentTesting from '../Assets/EquipmentTestingTroubleshooting.jpg';
 import SmallDrive from '../Assets/SmallDrivePanel.jpg';
 import ProjectBox from './ProjectBox';
+
+import { useEffect, useRef, useState} from 'react';
 import '../CSS/ProjectPannels.css';
 
 
 const ProjectPannels = () => {
+    const projectsRef = useRef(null);
+    const [isProjectsVisible, setIsProjectsVisible] = useState(false);
+
+    useEffect(() => {
+        const createObserver = (ref, setState) => {
+            const observer = new IntersectionObserver(
+                ([entry]) => {
+                    if (entry.isIntersecting) {
+                        setState(true);
+                        observer.disconnect();
+                    }
+                },
+                { threshold: 0.25 }
+            );
     
+            if (ref.current) observer.observe(ref.current);
+            return () => observer.disconnect();
+        };
+    
+        const projectsObserverCleanup = createObserver(projectsRef, setIsProjectsVisible);
+    
+        return () => {
+            projectsObserverCleanup();
+        };
+    }, []);
+
     const projectBoxData = [
         { title: "Beans", 
         summary: "Labore est dolor culpa aute deserunt aliqua id esse ea minim officia.",
@@ -32,7 +59,7 @@ const ProjectPannels = () => {
 
     return (
         <div className="projects-container">
-            <div className='projects-header'>
+            <div ref={projectsRef} className={`projects-header ${isProjectsVisible ? "fade-in" : ""}`}> 
                 <h3>Check Out Our Work</h3>
                 <h2>We have made some pretty cool things and hope that you'll think so too</h2>
             </div>
