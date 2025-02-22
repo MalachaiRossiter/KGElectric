@@ -1,9 +1,8 @@
-import { useState, useRef} from 'react';
-import { Link, useNavigate} from 'react-router-dom';
+import { useState, useRef } from 'react';
 import axios from 'axios';
+import '../CSS/Form.css';
 
 const Resume = (props) => {
-
     const [formItems, setFormItems] = useState({
         firstName: '',
         lastName: '',
@@ -12,10 +11,12 @@ const Resume = (props) => {
     });
 
     const [file, setFile] = useState(null);
+    const [fileName, setFileName] = useState(''); // State to store file name
     const [errors, setErrors] = useState({});
+    const [successMessage, setSuccessMessage] = useState('');
     const fileInputRef = useRef(null); // Reference to file input
 
-    //handles change in any form inputs
+    // Handles change in any form inputs
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormItems((prevItems) => ({
@@ -25,102 +26,140 @@ const Resume = (props) => {
     };
 
     const handleFileChange = (e) => {
-        setFile(e.target.files[0]); //Store Selected File
-    }
+        const selectedFile = e.target.files[0]; // Store Selected File
+        setFile(selectedFile);
+        setFileName(selectedFile ? selectedFile.name : ''); // Set file name
+    };
 
-
-    //handles form submitions and displays errors if needed
+    // Handles form submissions and displays errors if needed
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(formItems);
 
-        //appends formfields
+        // Appends form fields
         const formData = new FormData();
         Object.keys(formItems).forEach(key => {
             formData.append(key, formItems[key]);
         });
 
-        //append file if available
+        // Append file if available
         if (file) {
             formData.append('file', file);
         }
-        try { 
+        try {
             const response = await axios.post('http://localhost:5000/api/email/sendResumeForm', formData, {
-                headers: {'Content-Type': 'multipart/form-data' }
+                headers: { 'Content-Type': 'multipart/form-data' }
             });
 
-            //If form is submitted successfully it will reset error logs and display log success message
+            // If form is submitted successfully, reset form fields and display success message
             setFormItems({ firstName: '', lastName: '', email: '', message: '' });
             setFile(null);
+            setFileName(''); // Clear file name
             setErrors({});
+            setSuccessMessage('Your resume has been submitted successfully!'); // Set success message
 
             // Clear the file input field
             if (fileInputRef.current) {
                 fileInputRef.current.value = "";
             }
-            console.log('Form subbmitted Successfully: ', response.data);
+            console.log('Form submitted Successfully: ', response.data);
         } catch (error) {
-            //ff request fails, will check for validation errors in responce
-            if(error.response && error.response.data.errors) {
+            // If request fails, check for validation errors in response
+            if (error.response && error.response.data.errors) {
                 setErrors(error.response.data.errors);
                 console.log('Validation Errors: ', error.response.data.errors);
             } else {
                 console.error('Error submitting form: ', error);
             }
+            setSuccessMessage(''); // Clear success message on error
         }
     };
 
     return (
-        <div className='body'>
-            <div className='left-column'>
-                <h1>How can we help</h1>
-                <p>Start by telling us a little about you and your project.
-                    Within one business day, one of our teammembers will reach out
-                    to gather some more information about your project and see how
-                    we can help to get your project underway as well as provide you
-                    with a project estimate.
-                </p>
-                <h3>Meet our Engineers</h3>
-                <div className='engineer-blocks'>
-                    {/* get pictures of people*/}
-                </div>
-                <h3>We're excited and ready to help!</h3>
+        <div className='contact-container'>
+            <div className='contact-form-header'>
+                <h3>CONTACT US</h3>
+                <h1>Looking for work? We're looking for you!</h1>
             </div>
-            <div className='right-column'>
-                <form onSubmit={handleSubmit} className='project-form'>
-                    <h1>Tell us how we can help</h1>
+            <div className='contact-form-container'>
+                <form onSubmit={handleSubmit} className='contact-form'>
+                    <h3>SEND US A MESSAGE</h3>
+                    {successMessage && <p className="success-message">{successMessage}</p>} {/* Success message */}
                     <div className='double-input'>
-                        {/*https://www.youtube.com/watch?v=f6ocDCkCmhM*/}
                         <div className='field-container'>
-                            <div className='field-descriptor'>
-                                <p>FirstName</p>
-                                {errors.message && <p className="error">{errors.firstName}</p>}
-                            </div>
-                            <input type='text' name={'firstName'} value={formItems.firstName} placeholder={"First Name*"} onChange={handleChange}/>
+                            <input 
+                                type='text' 
+                                name='firstName' 
+                                value={formItems.firstName} 
+                                placeholder="First Name*" 
+                                onChange={handleChange} 
+                            />
+                            {errors.firstName && <p className="error">{errors.firstName}</p>}
                         </div>
                         <div className='field-container'>
-                            <div className='field-descriptor'>
-                                <p>LastName</p>
-                                {errors.message && <p className="error">{errors.lastName}</p>}
-                            </div>
-                            <input type='text' name={'lastName'} value={formItems.lastName} placeholder={"last Name*"} onChange={handleChange}/>
+                            <input 
+                                type='text' 
+                                name='lastName' 
+                                value={formItems.lastName} 
+                                placeholder="Last Name*" 
+                                onChange={handleChange} 
+                            />
+                            {errors.lastName && <p className="error">{errors.lastName}</p>}
                         </div>
                     </div>
-                    <div className='field-descriptor'>
-                        <p>Email</p>
-                        {errors.message && <p className="error">{errors.email}</p>}
+                    <div className='field-container'>
+                        <input 
+                            type='text' 
+                            name='email' 
+                            value={formItems.email} 
+                            placeholder="Email*" 
+                            onChange={handleChange} 
+                        />
+                        {errors.email && <p className="error">{errors.email}</p>}
                     </div>
-                    <input type='text' name={'email'} value={formItems.email} placeholder={"Email*"} onChange={handleChange}/>
-                    <div className='field-descriptor'>
-                                <p>Message</p>
-                                {errors.message && <p className="error">{errors.message}</p>}
-                            </div>
-                    <textarea name={'message'} value={formItems.message} placeholder={"Please tell us about your project*"} onChange={handleChange}/>
-                    <input type="file" ref={fileInputRef} onChange={handleFileChange}/>
-                    <input type={'submit'}/>
+                    <div className='field-container'>
+                        <textarea 
+                            name='message' 
+                            value={formItems.message} 
+                            placeholder="Please let us know what position/skills you'd like to work with*" 
+                            onChange={handleChange} 
+                        />
+                        {errors.message && <p className="error">{errors.message}</p>}
+                    </div>
+                    <div className='field-container'>
+                        <label className="custom-file-upload">
+                            <input 
+                                type="file" 
+                                ref={fileInputRef} 
+                                onChange={handleFileChange} 
+                            />
+                            Browse File
+                        </label>
+                        {fileName && <span className="file-name">{fileName}</span>} {/* Display file name */}
+                    </div>
+                    <button className='submitbtn' type='submit'>SUBMIT</button>
                 </form>
+                <div className='contact-info'>
+                    <h3>CONTACT INFO</h3>
+                    <div className='contact-block'>
+                        <h4>Come Say Hi</h4>
+                        <p>7012 Hatches Corners RD</p>
+                        <p>CONNEAUT OH</p>
+                        <p>44030 US</p>
+                    </div>
+                    <div className='contact-block'>
+                        <h4>Get In Touch At</h4>
+                        <p>KRossiter@kgelectricengineering.com</p>
+                        <p>GRossiter@kgelectricengineering.com</p>
+                    </div>
+                    <div className='contact-block'>
+                        <h4>Call Us</h4>
+                        <p>(440) 594-1460</p>
+                    </div>
+                </div>
             </div>
         </div>
-    )
+    );
 }
+
 export default Resume;

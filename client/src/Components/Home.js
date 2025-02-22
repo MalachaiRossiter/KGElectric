@@ -6,6 +6,7 @@ import '../CSS/Home.css';
 import About from '../Components/About';
 import Services from '../Components/Services';
 import ProjectPannels from '../Components/ProjectPannels';
+import Contact from '../Components/Contact';
 
 const words = ["Electric", "Engineering", "Automation"];
 const colors = ["#fb8500", "#fb8500", "#fb8500"];
@@ -70,6 +71,7 @@ const Home = (props) => {
         <About/>
         <Services/>
         <ProjectPannels/>
+        <Contact/>
     </div>
     )
 }

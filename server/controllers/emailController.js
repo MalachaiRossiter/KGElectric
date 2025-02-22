@@ -55,7 +55,7 @@ module.exports.createContactRequest = async (req, res) => {
     
         //sends the email subject and body to the email services in ../services/emailService
         await sendEmailService(email, subject, emailBody);
-        res.status(200).json({ message: 'Email sent successfully.' });
+        res.status(200).json({ message: 'Message sent successfully!' });
     } catch (error) {
         console.error('Error sending email:', error);
         res.status(500).json({ error: 'Failed to send email.' });
@@ -126,7 +126,7 @@ module.exports.createResumeRequest = async (req, res) => {
             fs.unlinkSync(file.path);
         }
 
-        res.status(200).json({ message: 'Email sent successfully.' });
+        res.status(200).json({ message: 'Resume sent successfully!' });
     } catch (error) {
         console.error('Error sending email:', error);
         res.status(500).json({ error: 'Failed to send email.' });

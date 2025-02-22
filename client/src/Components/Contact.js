@@ -1,9 +1,8 @@
-import { useState, useEffect} from 'react';
-import { Link, useNavigate} from 'react-router-dom';
+import { useState } from 'react';
 import axios from 'axios';
+import '../CSS/Form.css';
 
 const Contact = (props) => {
-
     const [formItems, setFormItems] = useState({
         firstName: '',
         lastName: '',
@@ -16,8 +15,9 @@ const Contact = (props) => {
     });
 
     const [errors, setErrors] = useState({});
+    const [successMessage, setSuccessMessage] = useState('');
 
-    //handles change in any form inputs
+    // handles change in any form inputs
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormItems((prevItems) => ({
@@ -26,109 +26,156 @@ const Contact = (props) => {
         }));
     };
 
-
-    //handles form submitions and displays errors if needed
+    // handles form submissions and displays errors if needed
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(formItems);
-        try { 
-            const response = await axios.post('http://localhost:5000/api/email/sendRequestForm', formItems, {
-            headers: {'Content-Type': 'application/json' }
+        try {
+            const response = await axios.post('http://localhost:5000/api/email/sendContactForm', formItems, {
+                headers: { 'Content-Type': 'application/json' },
             });
 
-            //If form is submitted successfully it will reset error logs and display log success message
+            // If form is submitted successfully, reset error logs, clear form fields, and display success message
             setErrors({});
-            console.log('Form subbmitted Successfully: ', response.data);
+            setSuccessMessage(response.data.message);
+            setFormItems({ // Reset the form fields
+                firstName: '',
+                lastName: '',
+                business: '',
+                email: '',
+                phone: '',
+                zipCode: '',
+                timeFrame: '',
+                message: '',
+            });
+            console.log('Form submitted Successfully: ', response.data);
         } catch (error) {
-            //ff request fails, will check for validation errors in responce
-            if(error.response && error.response.data.errors) {
+            // if request fails, will check for validation errors in response
+            if (error.response && error.response.data.errors) {
                 setErrors(error.response.data.errors);
                 console.log('Validation Errors: ', error.response.data.errors);
             } else {
                 console.error('Error submitting form: ', error);
             }
+            setSuccessMessage(''); // Clear success message on error
         }
     };
 
     return (
-        <div className='body'>
-            <div className='left-column'>
-                <h1>How can we help</h1>
-                <p>Start by telling us a little about you and your project.
-                    Within one business day, one of our teammembers will reach out
-                    to gather some more information about your project and see how
-                    we can help to get your project underway as well as provide you
-                    with a project estimate.
-                </p>
-                <h3>Meet our Engineers</h3>
-                <div className='engineer-blocks'>
-                    {/* get pictures of people*/}
-                </div>
-                <h3>We're excited and ready to help!</h3>
+        <div className='contact-container'>
+            <div className='contact-form-header'>
+                <h3>CONTACT US</h3>
+                <h1>Let's work together to improve your business</h1>
             </div>
-            <div className='right-column'>
-                <form onSubmit={handleSubmit} className='project-form'>
-                    <h1>Tell us how we can help</h1>
-                    <div className='double-input'>
-                        {/*https://www.youtube.com/watch?v=f6ocDCkCmhM*/}
-                        <div className='field-container'>
-                            <div className='field-descriptor'>
-                                <p>FirstName</p>
-                                {errors.message && <p className="error">{errors.firstName}</p>}
-                            </div>
-                            <input type='text' name={'firstName'} value={formItems.firstName} placeholder={"First Name*"} onChange={handleChange}/>
-                        </div>
-                        <div className='field-container'>
-                            <div className='field-descriptor'>
-                                <p>LastName</p>
-                                {errors.message && <p className="error">{errors.lastName}</p>}
-                            </div>
-                            <input type='text' name={'lastName'} value={formItems.lastName} placeholder={"last Name*"} onChange={handleChange}/>
-                        </div>
-                    </div>
-                    <div className='field-descriptor'>
-                        <p>Business</p>
-                        {errors.message && <p className="error">{errors.business}</p>}
-                    </div>
-                    <input type='text' name={'business'} value={formItems.business} placeholder={"Business*"} onChange={handleChange}/>
-                    <div className='field-descriptor'>
-                        <p>Email</p>
-                        {errors.message && <p className="error">{errors.email}</p>}
-                    </div>
-                    <input type='text' name={'email'} value={formItems.email} placeholder={"Email*"} onChange={handleChange}/>
+            <div className='contact-form-container'>
+                <form onSubmit={handleSubmit} className='contact-form'>
+                <h3>SEND US A MESSAGE</h3>
+                {successMessage && <p className="success-message">{successMessage}</p>} {/* Success message */}
                     <div className='double-input'>
                         <div className='field-container'>
-                            <div className='field-descriptor'>
-                                <p>Phone</p>
-                                {errors.message && <p className="error">{errors.phone}</p>}
-                            </div>
-                            <input type='text' name={'phone'} value={formItems.phone} placeholder={"***-***-****"} onChange={handleChange}/>
+                            <input 
+                                type='text' 
+                                name='firstName' 
+                                value={formItems.firstName} 
+                                placeholder="First Name*" 
+                                onChange={handleChange} 
+                            />
+                            {errors.firstName && <p className="error">{errors.firstName}</p>}
                         </div>
                         <div className='field-container'>
-                            <div className='field-descriptor'>
-                                <p>Zip Code</p>
-                                {errors.message && <p className="error">{errors.zipCode}</p>}
-                            </div>
-                            <input type='text' name={'zipCode'} value={formItems.zipCode} placeholder={"Zip Code"} onChange={handleChange}/>
+                            <input 
+                                type='text' 
+                                name='lastName' 
+                                value={formItems.lastName} 
+                                placeholder="Last Name*" 
+                                onChange={handleChange} 
+                            />
+                            {errors.lastName && <p className="error">{errors.lastName}</p>}
                         </div>
                     </div>
-                    <p>When would you like to start this project?</p>
-                    <select name={'timeFrame'} value={formItems.timeFrame} onChange={handleChange}>
-                        <option value={''}></option>
-                        <option value={'2 to 3 weeks'}>2 to 3 weeks</option>
-                        <option value={'1 to 2 months'}>1 to 2 months</option>
-                        <option value={'6 months'}>6 months</option>
-                        <option value={'1 year +'}>1 year +</option>
-                    </select>
-                    <div className='field-descriptor'>
-                                <p>Message</p>
-                                {errors.message && <p className="error">{errors.message}</p>}
-                            </div>
-                    <textarea name={'message'} value={formItems.message} placeholder={"Please tell us about your project*"} onChange={handleChange}/>
-                    <input type={'submit'}/>
+                    <div className='field-container'>
+                        <input 
+                            type='text' 
+                            name='business' 
+                            value={formItems.business} 
+                            placeholder="Business*" 
+                            onChange={handleChange} 
+                        />
+                        {errors.business && <p className="error">{errors.business}</p>}
+                    </div>
+                    <div className='field-container'>
+                        <input 
+                            type='text' 
+                            name='email' 
+                            value={formItems.email} 
+                            placeholder="Email*" 
+                            onChange={handleChange} 
+                        />
+                        {errors.email && <p className="error">{errors.email}</p>}
+                    </div>
+                    <div className='double-input'>
+                        <div className='field-container'>
+                            <input 
+                                type='text' 
+                                name='phone' 
+                                value={formItems.phone} 
+                                placeholder="Phone-Number" 
+                                onChange={handleChange} 
+                            />
+                            {errors.phone && <p className="error">{errors.phone}</p>}
+                        </div>
+                        <div className='field-container'>
+                            <input 
+                                type='text' 
+                                name='zipCode' 
+                                value={formItems.zipCode} 
+                                placeholder="Zip Code" 
+                                onChange={handleChange} 
+                            />
+                            {errors.zipCode && <p className="error">{errors.zipCode}</p>}
+                        </div>
+                    </div>
+                    <div className='field-container'>
+                        <input 
+                            type='text' 
+                            name='timeFrame' 
+                            value={formItems.timeFrame} 
+                            placeholder="When would you like to start this project?" 
+                            onChange={handleChange} 
+                        />
+                    </div>
+                    <div className='field-container'>
+                        <textarea 
+                            name='message' 
+                            value={formItems.message} 
+                            placeholder="Your Message*" 
+                            onChange={handleChange} 
+                        />
+                        {errors.message && <p className="error">{errors.message}</p>}
+                    </div>
+                    <button className='submitbtn' type='submit'>SUBMIT</button>
                 </form>
+                <div className='contact-info'>
+                    <h3>CONTACT INFO</h3>
+                    <div className='contact-block'>
+                        <h4>Come Say Hi</h4>
+                        <p>7012 Hatches Corners RD</p>
+                        <p>CONNEAUT OH</p>
+                        <p>44030 US</p>
+                    </div>
+                    <div className='contact-block'>
+                        <h4>Get In Touch At</h4>
+                        <p>KRossiter@kgelectricengineering.com</p>
+                        <p>GRossiter@kgelectricengineering.com</p>
+                    </div>
+                    <div className='contact-block'>
+                        <h4>Call Us</h4>
+                        <p>(440) 594-1460</p>
+                    </div>
+                </div>
             </div>
         </div>
-    )
+    );
 }
+
 export default Contact;
