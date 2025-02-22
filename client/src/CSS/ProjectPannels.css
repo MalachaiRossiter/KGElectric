@@ -1,0 +1,35 @@
+.projects-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 0px;
+    background-color: white;
+}
+
+.projects-header {
+    width: 60%;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+    font-weight: 700;
+    border-bottom: solid rgba(0, 0, 0, 0.253) 1px;
+}
+
+.projects-header h3 {
+    font-size: 24px;
+    padding-bottom: 10px;
+}
+
+.projects-header h2 {
+    font-size: 48px;
+    color: black;
+}
+
+.project-box-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Create 2 equal columns */
+    gap: 20px; /* Space between the boxes */
+    width: 60%; /* Adjust the width as needed */
+}
