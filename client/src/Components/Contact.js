@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
 import '../CSS/Form.css';
-import { Helmet } from 'react-helmet';
 const apiUrl = process.env.REACT_APP_API_URL;
 
 const Contact = (props) => {

@@ -1,7 +1,6 @@
 import '../CSS/Services.css';
 import automation from '../Assets/bot.png';
 import { useEffect, useRef, useState} from 'react';
-import { Helmet } from 'react-helmet';
 
 // Reusable ServiceBox Component
 const ServiceBox = ({ img, title, description }) => {

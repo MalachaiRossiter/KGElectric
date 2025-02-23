@@ -3,7 +3,7 @@ import electric from '../Assets/lighting.png';
 import engineering from '../Assets/setting.png';
 import automation from '../Assets/bot.png';
 import { useEffect, useRef, useState } from "react";
-import { Helmet } from 'react-helmet';
+
 
 // Reusable Specialties Component
 const SpecialtyBox = ({ icon, title, description }) => {

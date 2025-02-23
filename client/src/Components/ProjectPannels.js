@@ -3,7 +3,6 @@ import BannerSafetyInstall from '../Assets/BannerSafetyInstall.jpg';
 import EquipmentTesting from '../Assets/EquipmentTestingTroubleshooting.jpg';
 import SmallDrive from '../Assets/SmallDrivePanel.jpg';
 import ProjectBox from './ProjectBox';
-import { Helmet } from 'react-helmet';
 
 import { useEffect, useRef, useState} from 'react';
 import '../CSS/ProjectPannels.css';

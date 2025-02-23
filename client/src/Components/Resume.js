@@ -2,6 +2,7 @@ import { useState, useRef } from 'react';
 import axios from 'axios';
 import '../CSS/Form.css';
 import { Helmet } from 'react-helmet';
+const apiUrl = process.env.REACT_APP_API_URL;
 
 const Resume = (props) => {
     const [formItems, setFormItems] = useState({
@@ -48,7 +49,7 @@ const Resume = (props) => {
             formData.append('file', file);
         }
         try {
-            const response = await axios.post('http://localhost:5000/api/email/sendResumeForm', formData, {
+            const response = await axios.post(`${apiUrl}/api/email/sendResumeForm`, formData, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
 
