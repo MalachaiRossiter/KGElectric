@@ -3,13 +3,14 @@ import electric from '../Assets/lighting.png';
 import engineering from '../Assets/setting.png';
 import automation from '../Assets/bot.png';
 import { useEffect, useRef, useState } from "react";
+import { Helmet } from 'react-helmet';
 
 // Reusable Specialties Component
 const SpecialtyBox = ({ icon, title, description }) => {
     return (
         <div className='specialties-box'>
             <div className='specialties-box-header'>
-                <img className='specialties-icon' src={icon} alt={`${title} Icon`} />
+                <img className='specialties-icon' src={icon} alt={`Icon representing ${title}`} />
                 <h3>{title}</h3>
             </div>
             <p>{description}</p>

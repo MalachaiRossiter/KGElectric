@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import axios from 'axios';
 import '../CSS/Form.css';
+import { Helmet } from 'react-helmet';
 
 const Resume = (props) => {
     const [formItems, setFormItems] = useState({
@@ -77,6 +78,11 @@ const Resume = (props) => {
 
     return (
         <div className='contact-container'>
+            <Helmet>
+                <title>Apply to K&G Electric</title>
+                <meta name="description" content="Apply to be an Electrical Engineer with K&G Electric" />
+                <meta name="keywords" content="Electrician, Electrical, Industrial Electrian, North East Ohio, Ohio Electrician" />
+            </Helmet>
             <div className='contact-form-header'>
                 <h3>CONTACT US</h3>
                 <h1>Looking for work? We're looking for you!</h1>
@@ -149,8 +155,8 @@ const Resume = (props) => {
                     </div>
                     <div className='contact-block'>
                         <h4>Get In Touch At</h4>
-                        <p>KRossiter@kgelectricengineering.com</p>
-                        <p>GRossiter@kgelectricengineering.com</p>
+                        <p>KRossiter@kgelectricautomation.com</p>
+                        <p>GRossiter@kgelectricautomation.com</p>
                     </div>
                     <div className='contact-block'>
                         <h4>Call Us</h4>

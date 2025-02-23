@@ -5,36 +5,36 @@ import '../CSS/Footer.css';
 
 const Footer = (props) => {
 
-    useEffect(() => {
-        if (Notification.permission !== 'granted') {
-            Notification.requestPermission();
-        }
-    }, []);
-
     const handleCopy = () => {
-        navigator.clipboard.writeText('(440) 594-1460')
-        .then(() => {
-            if (Notification.permission === 'granted') {
-                new Notification('Success', {
-                    body: 'Phone number copied to clipboard!',
-                });
-            } else {
-                alert('Phone number copied to clipboard!');
-            }
-        })
-        .catch(err => {
-            console.error('Failed to copy: ', err);
-        });
+        if (Notification.permission !== 'granted' && Notification.permission !== 'denied') {
+            Notification.requestPermission().then(permission => {
+                if (permission === 'granted') {
+                    new Notification('Success', {
+                        body: 'Phone number copied to clipboard!',
+                    });
+                } else {
+                    alert('Phone number copied to clipboard!');
+                }
+            });
+        } else {
+            navigator.clipboard.writeText('(440) 594-1460')
+            .then(() => alert('Phone number copied to clipboard!'))
+            .catch(err => console.error('Failed to copy:', err));
+        }
     };
 
     return (
-        <div className='footer'>
+        <footer className='footer'>
             <Link className='logoWrapperFooter' to={"/"}>
                 <img className='logo' src={logo} alt={'logo'} />
             </Link>
             <div className='footer-links-container'>
-                <Link to={"/Resume"} className='footer-links'><p>We're Hiring</p></Link>
-                <Link to={"/contact"} className='footer-links'><p>Contact Us</p></Link>
+                <Link to={"/Resume"} className='footer-links' rel="noopener noreferrer">
+                    <p>We're Hiring</p>
+                </Link>
+                <Link to={"/contact"} className='footer-links' rel="noopener noreferrer">
+                <p>Contact Us</p>
+                </Link>
                 <div className='footer-links'>
                         <p onClick={handleCopy} id='phone-number'>PHONE NUMBER:<br/>
                         (440) 594-1460</p>
@@ -44,7 +44,7 @@ const Footer = (props) => {
                         7012 Hatches Corners RD, CONNEAUT OH</p>
                     </div>
             </div>
-        </div>
+        </footer>
     )
 }
 

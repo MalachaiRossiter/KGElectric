@@ -33,6 +33,10 @@ h3 {
     margin-top: 2.5vh;
 }
 
+.nav-guide-links h2:hover{
+    cursor:pointer;
+}
+
 .nav-link {
     color: #e2e2e2;
     font-size: 24px;

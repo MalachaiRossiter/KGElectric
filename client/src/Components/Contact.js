@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import axios from 'axios';
 import '../CSS/Form.css';
+import { Helmet } from 'react-helmet';
+const apiUrl = process.env.REACT_APP_API_URL;
 
 const Contact = (props) => {
     const [formItems, setFormItems] = useState({
@@ -27,11 +29,26 @@ const Contact = (props) => {
     };
 
     // handles form submissions and displays errors if needed
+    const validateForm = () => {
+        let newErrors = {};
+        if (!formItems.firstName.trim()) newErrors.firstName = "First name is required";
+        if (!formItems.lastName.trim()) newErrors.lastName = "Last name is required";
+        if (!formItems.email.trim() || !/\S+@\S+\.\S+/.test(formItems.email)) newErrors.email = "Valid email required";
+        if (!formItems.business.trim()) newErrors.business = "Business name is required";
+        if (!formItems.message.trim()) newErrors.message = "Message cannot be empty";
+        return newErrors;
+    };
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const newErrors = validateForm();
+        if (Object.keys(newErrors).length > 0) {
+            setErrors(newErrors);
+            return;
+        }
         console.log(formItems);
         try {
-            const response = await axios.post('http://localhost:5000/api/email/sendContactForm', formItems, {
+            const response = await axios.post(`${apiUrl}/email/sendContactForm`, formItems, {
                 headers: { 'Content-Type': 'application/json' },
             });
 
@@ -165,8 +182,8 @@ const Contact = (props) => {
                     </div>
                     <div className='contact-block'>
                         <h4>Get In Touch At</h4>
-                        <p>KRossiter@kgelectricengineering.com</p>
-                        <p>GRossiter@kgelectricengineering.com</p>
+                        <p>KRossiter@kgelectricautomation.com</p>
+                        <p>GRossiter@kgelectricautomation.com</p>
                     </div>
                     <div className='contact-block'>
                         <h4>Call Us</h4>

@@ -3,6 +3,7 @@ import BannerSafetyInstall from '../Assets/BannerSafetyInstall.jpg';
 import EquipmentTesting from '../Assets/EquipmentTestingTroubleshooting.jpg';
 import SmallDrive from '../Assets/SmallDrivePanel.jpg';
 import ProjectBox from './ProjectBox';
+import { Helmet } from 'react-helmet';
 
 import { useEffect, useRef, useState} from 'react';
 import '../CSS/ProjectPannels.css';
@@ -61,7 +62,7 @@ const ProjectPannels = () => {
         <div className="projects-container">
             <div ref={projectsRef} className={`projects-header ${isProjectsVisible ? "fade-in" : ""}`}> 
                 <h3>Check Out Our Work</h3>
-                <h2>We have made some pretty cool things and hope that you'll think so too</h2>
+                <h2>We're making some pretty cool things and hope that you'll think so too</h2>
             </div>
             <div className={`project-box-container`}>
                 {projectBoxData.map((projects, index) => (

@@ -1,6 +1,7 @@
 import '../CSS/Services.css';
 import automation from '../Assets/bot.png';
 import { useEffect, useRef, useState} from 'react';
+import { Helmet } from 'react-helmet';
 
 // Reusable ServiceBox Component
 const ServiceBox = ({ img, title, description }) => {
@@ -56,7 +57,7 @@ const Services = () => {
         <div className='services-container'>
             <div ref={servicesRef} className={`services-header ${isServiceVisible ? "fade-in" : ""}`}>
                 <h3>WHAT WE DO</h3>
-                <h2>We're prepared to ensure that your facilities
+                <h2>Our goal is to ensure that your facilities
                     stay up and running around the clock</h2>
             </div>
             <div className='service-items-container'>
