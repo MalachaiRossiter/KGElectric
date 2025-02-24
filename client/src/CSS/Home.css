@@ -74,6 +74,7 @@
     background-color: #fb860000;
     font-size: 16px;
     text-decoration: none;
+    cursor: pointer;
     border: solid 2px white;
     transition: 0.25s ease-in;
 }

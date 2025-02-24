@@ -50,9 +50,9 @@ const About = () => {
     }, []);
 
     const specialtiesData = [
-        { title: "Electric", description: "Velit enim sint aliqua ad nisi incididunt exercitation fugiat veniam ipsum mollit ex dolore enim.", icon: electric },
-        { title: "Engineering", description: "Velit enim sint aliqua ad nisi incididunt exercitation fugiat veniam ipsum mollit ex dolore enim.", icon: engineering },
-        { title: "Automation", description: "Velit enim sint aliqua ad nisi incididunt exercitation fugiat veniam ipsum mollit ex dolore enim.", icon: automation }
+        { title: "Electric", description: "As a licensed and insured electrical contractor, all your electrical needs under 1,000 volts can be handled", icon: electric },
+        { title: "Automation", description: "We're capable of automating your processes and equipment while providing data acquisition", icon: automation },
+        { title: "Engineering", description: "Our team of experts can design, plan, and construct custom equipment to fit your facility needs", icon: engineering }
     ];
 
     return (
@@ -63,14 +63,12 @@ const About = () => {
                     <h1>We are K&G Electric</h1>
                 </div>
                 <p>
-                    Eiusmod aute reprehenderit ea enim minim magna quis eu 
-                    ut duis reprehenderit officia. Est dolore labore duis aliquip
-                    culpa Lorem nostrud voluptate voluptate culpa irure. Culpa tempor 
-                    mollit Lorem id id in voluptate nisi ex. Esse exercitation ipsum 
-                    esse officia duis duis. Anim dolor duis cupidatat consectetur non 
-                    excepteur veniam consequat ipsum dolore ad labore. Mollit magna nisi 
-                    aliquip aute commodo anim aliquip veniam ad exercitation laboris 
-                    mollit proident.
+                    K&G Electric, Automation and Engineering is the go to engineering and technical support service for
+                    industrial components, factory and process control. We have been servicing North East Ohio and the 
+                    East Coast of the United States for over 2 decades. Our in-house team of engineers and technical experts have over 65 years of experience
+                    in services such as expert engineering; technical support for factory and process control; automating systems;
+                    electric, hydraulic, and pneumatic equipment; and heat transfer / pumping and cooling applications. Our services have earned the
+                    trust of high exposure customers in the Greater Cleveland area and we hope that we will earn your trust too!                 
                 </p>
             </div>
             

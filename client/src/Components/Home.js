@@ -80,7 +80,7 @@ const Home = () => {
         <div>
             <Helmet>
                 <title>{sectionTitles[activeSection]}</title>
-                <meta name="description" content="We Are K&G Electric. We are an Electrical Engineering Company Located near Cleveland Ohio." />
+                <meta name="description" content="We Are K&G Electric, an Electrical Engineering Company Located near Cleveland Ohio that specialies in PLC, automation, IOT, robotics and, fabrication" />
                 <meta name="keywords" content="Electrician, Electrical, Industrial Electrician, North East Ohio, Ohio Electrician" />
             </Helmet>
 
