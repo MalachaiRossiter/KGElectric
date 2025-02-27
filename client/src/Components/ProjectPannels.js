@@ -1,7 +1,7 @@
 import SwitchGear from '../Assets/3PhaseSwitchGearInside.jpg';
 import BannerSafetyInstall from '../Assets/BannerSafetyInstall.jpg';
 import EquipmentTesting from '../Assets/EquipmentTestingTroubleshooting.jpg';
-import SmallDrive from '../Assets/SmallDrivePanel.jpg';
+import phaseDistrubution from '../Assets/480volt3phasedistubution.jpg';
 import ProjectBox from './ProjectBox';
 
 import { useEffect, useRef, useState} from 'react';
@@ -39,7 +39,7 @@ const ProjectPannels = () => {
         { title: "Beans", 
         summary: "Labore est dolor culpa aute deserunt aliqua id esse ea minim officia.",
         description: "Anim qui magna minim eu exercitation nulla. Do mollit fugiat esse ex ut non ad. Et occaecat officia reprehenderit elit ut nulla dolore eu ad ad ea. Velit anim occaecat veniam laborum velit esse sit exercitation officia cupidatat adipisicing nostrud dolore. Labore aliqua fugiat sunt minim velit ad. Consequat enim eu adipisicing sunt laborum eu elit deserunt sunt voluptate ut est.",
-        icon: SmallDrive
+        icon: phaseDistrubution
     },
     { title: "Beans", 
         summary: "Labore est dolor culpa aute deserunt aliqua id esse ea minim officia.",
