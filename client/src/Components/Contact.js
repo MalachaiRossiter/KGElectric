@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
 import '../CSS/Form.css';
-const apiUrl = process.env.REACT_APP_API_URL;
 
 const Contact = (props) => {
     const [formItems, setFormItems] = useState({
@@ -47,7 +46,7 @@ const Contact = (props) => {
         }
         console.log(formItems);
         try {
-            const response = await axios.post(`${apiUrl}/email/sendContactForm`, formItems, {
+            const response = await axios.post(`http://localhost:5000/api/email/sendContactForm`, formItems, {
                 headers: { 'Content-Type': 'application/json' },
             });
 
