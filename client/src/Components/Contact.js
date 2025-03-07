@@ -16,6 +16,7 @@ const Contact = (props) => {
 
     const [errors, setErrors] = useState({});
     const [successMessage, setSuccessMessage] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
 
     // handles change in any form inputs
     const handleChange = (e) => {
@@ -39,21 +40,24 @@ const Contact = (props) => {
     
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true); // Start loading animation
+        setSuccessMessage(''); // Clear previous messages
+        setErrors({}); // Reset errors
+    
         const newErrors = validateForm();
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors);
+            setIsLoading(false); // Stop loading if validation fails
             return;
         }
-        console.log(formItems);
+    
         try {
-            const response = await axios.post(`http://localhost:5000/api/email/sendContactForm`, formItems, {
+            const response = await axios.post(`https://kgelectric.onrender.com/api/email/sendContactForm`, formItems, {
                 headers: { 'Content-Type': 'application/json' },
             });
-
-            // If form is submitted successfully, reset error logs, clear form fields, and display success message
-            setErrors({});
+    
             setSuccessMessage(response.data.message);
-            setFormItems({ // Reset the form fields
+            setFormItems({
                 firstName: '',
                 lastName: '',
                 business: '',
@@ -63,17 +67,18 @@ const Contact = (props) => {
                 timeFrame: '',
                 message: '',
             });
-            console.log('Form submitted Successfully: ', response.data);
+            console.log('Form submitted successfully:', response.data);
         } catch (error) {
-            // if request fails, will check for validation errors in response
             if (error.response && error.response.data.errors) {
                 setErrors(error.response.data.errors);
                 console.log('Validation Errors: ', error.response.data.errors);
             } else {
-                console.error('Error submitting form: ', error);
+                console.error('Error submitting form:', error);
             }
-            setSuccessMessage(''); // Clear success message on error
+            setSuccessMessage('');
         }
+    
+        setIsLoading(false); // Stop loading animation
     };
 
     return (
@@ -85,7 +90,11 @@ const Contact = (props) => {
             <div className='contact-form-container'>
                 <form onSubmit={handleSubmit} className='contact-form'>
                 <h3>SEND US A MESSAGE</h3>
-                {successMessage && <p className="success-message">{successMessage}</p>} {/* Success message */}
+                {isLoading ? (
+                    <p className="processing-message">Processing... this may take a minute</p>
+                    ) : (
+                    successMessage && <p className="success-message">{successMessage}</p>
+                    )}
                     <div className='double-input'>
                         <div className='field-container'>
                             <input 

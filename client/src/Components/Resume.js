@@ -16,6 +16,7 @@ const Resume = (props) => {
     const [errors, setErrors] = useState({});
     const [successMessage, setSuccessMessage] = useState('');
     const fileInputRef = useRef(null); // Reference to file input
+    const [isLoading, setIsLoading] = useState(false);
 
     // Handles change in any form inputs
     const handleChange = (e) => {
@@ -35,6 +36,7 @@ const Resume = (props) => {
     // Handles form submissions and displays errors if needed
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
         console.log(formItems);
 
         // Appends form fields
@@ -47,8 +49,9 @@ const Resume = (props) => {
         if (file) {
             formData.append('file', file);
         }
+
         try {
-            const response = await axios.post(`http://localhost:5000/api/api/email/sendResumeForm`, formData, {
+            const response = await axios.post(`https://kgelectric.onrender.com/api/email/sendResumeForm`, formData, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
 
@@ -74,6 +77,8 @@ const Resume = (props) => {
             }
             setSuccessMessage(''); // Clear success message on error
         }
+
+        setIsLoading(false);
     };
 
     return (
@@ -90,7 +95,11 @@ const Resume = (props) => {
             <div className='contact-form-container'>
                 <form onSubmit={handleSubmit} className='contact-form'>
                     <h3>SEND US A MESSAGE</h3>
-                    {successMessage && <p className="success-message">{successMessage}</p>} {/* Success message */}
+                    {isLoading ? (
+                    <p className="processing-message">Processing... this may take a minute</p>
+                    ) : (
+                    successMessage && <p className="success-message">{successMessage}</p>
+                    )}
                     <div className='double-input'>
                         <div className='field-container'>
                             <input 

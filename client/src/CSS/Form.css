@@ -232,3 +232,21 @@ input[type="file"] {
         max-width: 90%;
     }
 }
+
+/* noted that the api takes a while to process form */
+.processing-message {
+    color: #fb8500;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+    animation: blink 1s infinite alternate;
+}
+
+@keyframes blink {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0.5;
+    }
+}
