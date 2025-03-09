@@ -30,7 +30,7 @@
     text-align: center;
     padding-bottom: 30px;
     margin-bottom: 30px;
-    border-bottom: 3px solid rgb(255, 255, 255); /* Adjust thickness and color as needed */
+    border-bottom: 3px solid rgb(255, 255, 255); 
 }
 
 .about-header h3, h1 {
@@ -78,9 +78,9 @@
     align-items: center;
     text-align: center;
     padding: 20px;
-    border-left: 1px solid rgba(255, 255, 255, 0.404); /* White line between each box */
+    border-left: 1px solid rgba(255, 255, 255, 0.404); 
     flex: 1;
-    min-height: 300px; /* Set a minimum height for consistent size */
+    min-height: 300px; 
 }
 
 /* Remove left border for the first box */

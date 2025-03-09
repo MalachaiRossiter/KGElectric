@@ -140,7 +140,7 @@ ul {
     }
 
     .service-items-container {
-        grid-template-columns: 1fr; /* Single column layout */
+        grid-template-columns: 1fr; 
         width: 100%;
         max-width: 90%;
     }
