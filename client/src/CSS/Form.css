@@ -29,12 +29,12 @@
 }
 
 .contact-form-header h3 {
-    font-size: 24px;
+    font-size: 1.5rem;
     padding-bottom: 10px;
 }
 
 .contact-form-header h1 {
-    font-size: 48px;
+    font-size: 3rem;
     color: white;
 }
 
@@ -87,7 +87,7 @@
     border: none;
     color: white;
     border-bottom: solid 1px white;
-    font-size: 16px;
+    font-size: 1rem;
     box-sizing: border-box;
     padding-left: 0;
 }
@@ -107,7 +107,7 @@
 .submitbtn {
     background-color: #fb8500;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 1rem;
     padding: 10px 0px;
     border: none;
 }
@@ -140,7 +140,7 @@ input[type="file"] {
 
 .error {
     color: #ff4d4d;
-    font-size: 12px;
+    font-size: .75rem;
     position: absolute;
     bottom: -18px;
     left: 0;
@@ -155,7 +155,7 @@ input[type="file"] {
 .success-message {
     color: green;
     margin-top: 10px;
-    font-size: 16px;
+    font-size: .75rem;
 }
 
 .contact-info {
@@ -171,7 +171,7 @@ input[type="file"] {
 
 .contact-info h4 {
     padding-bottom: 24px;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 700;
     color: #fb8500;
 }
@@ -185,49 +185,48 @@ input[type="file"] {
 /* Media Queries */
 @media (max-width: 1200px) {
     .contact-form-container {
-        width: 80%; /* Adjust width for medium screens */
+        width: 80%; 
     }
     
     .contact-form {
-        padding: 30px; /* Reduce padding */
+        padding: 30px; 
     }
     
     .contact-form-header h1 {
-        font-size: 36px; /* Adjust font size */
+        font-size: 2.5rem; 
     }
 
     .contact-form-header h3 {
-        font-size: 20px; /* Adjust font size */
+        font-size: 1.5rem; 
     }
 }
 
 @media (max-width: 600px) {
     .contact-form-container {
         flex-direction: column;
-        width: 90%; /* Adjust width for small screens */
+        width: 90%; 
     }
 
     .contact-form {
         width: 100%;
-        padding: 20px; /* Further reduce padding */
+        padding: 20px; 
     }
     
     .contact-form-header h1 {
-        font-size: 28px; /* Adjust font size */
+        font-size: 2rem; 
     }
 
     .contact-form-header h3 {
-        font-size: 18px; /* Adjust font size */
+        font-size: 1rem; 
     }
 
     .double-input {
-        flex-direction: column; /* Stack inputs vertically */
+        flex-direction: column; 
     }
 
     .double-input .field-container {
-        width: 100%; /* Ensure full width */
+        width: 100%; 
     }
-
     .contact-info{
         max-width: 90%;
     }
@@ -236,7 +235,7 @@ input[type="file"] {
 /* noted that the api takes a while to process form */
 .processing-message {
     color: #fb8500;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: bold;
     margin-top: 10px;
     animation: blink 1s infinite alternate;

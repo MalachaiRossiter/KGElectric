@@ -1,5 +1,11 @@
 import '../CSS/Services.css';
-import automation from '../Assets/bot.png';
+import bottomLine from '../Assets/BottomLine.png';
+import buildingAutomation from '../Assets/BuildingAutomation.png';
+import construction from '../Assets/Construction.png'
+import industrialMaintenance from '../Assets/IndustrialMaintenance.png';
+import safety from '../Assets/Safety.png';
+import important from '../Assets/Important.png';
+
 import { useEffect, useRef, useState} from 'react';
 
 // Reusable ServiceBox Component
@@ -9,20 +15,63 @@ const ServiceBox = ({ img, title, description }) => {
             <img className='specialties-icon' src={img} alt={`${title} Icon`} />
             <div className='service-text'>
                 <h3>{title}</h3>
-                <p>{description}</p>
+                {Array.isArray(description) ? (
+                    <ol>
+                        {description.map((point, index) => (
+                            <li key={index}>{point}</li>
+                        ))}
+                    </ol>
+                ) : (
+                    <p>{description}</p>
+                )}
             </div>
         </div>
     );
 };
 
 const servicesData = [
-    { title: "Apple", description: "Cupidatat consectetur excepteur excepteur dolore sunt enim in tempor veniam enim commodo deserunt magna. Labore anim eiusmod elit consequat deserunt dolore. Irure aliqua ut commodo laborum ea. Dolore tempor ex adipisicing nostrud ea adipisicing aliqua officia.", img: automation },
-    { title: "Banana", description: "Consectetur excepteur Lorem sit quis adipisicing. Qui quis minim aliquip proident duis dolor. Adipisicing ad nulla Lorem ad. Voluptate ad ex ut duis eu exercitation ipsum ut enim. Nisi occaecat id exercitation proident in consectetur cillum ullamco incididunt ipsum quis.", img: automation },
-    { title: "Orange", description: "Cupidatat consectetur excepteur excepteur dolore sunt enim in tempor veniam enim commodo deserunt magna. Labore anim eiusmod elit consequat deserunt dolore. Irure aliqua ut commodo laborum ea. Dolore tempor ex adipisicing nostrud ea adipisicing aliqua officia.", img: automation },
-    { title: "Grapes", description: "Consectetur excepteur Lorem sit quis adipisicing. Qui quis minim aliquip proident duis dolor. Adipisicing ad nulla Lorem ad. Voluptate ad ex ut duis eu exercitation ipsum ut enim. Nisi occaecat id exercitation proident in consectetur cillum ullamco incididunt ipsum quis.", img: automation },
-    { title: "Mango", description: "Cupidatat consectetur excepteur excepteur dolore sunt enim in tempor veniam enim commodo deserunt magna. Labore anim eiusmod elit consequat deserunt dolore. Irure aliqua ut commodo laborum ea. Dolore tempor ex adipisicing nostrud ea adipisicing aliqua officia.", img: automation },
-    { title: "Pineapple", description: "Cupidatat consectetur excepteur excepteur dolore sunt enim in tempor veniam enim commodo deserunt magna. Labore anim eiusmod elit consequat deserunt dolore. Irure aliqua ut commodo laborum ea. Dolore tempor ex adipisicing nostrud ea adipisicing aliqua officia.", img: automation }
+    { 
+        title: "Industrial Electrical Maintenance",
+        description: "Our experienced team enhances your maintenance staff with expert electrical troubleshooting, repairs, and servicing. We specialize in electrical design and build, power distribution systems (under 1000 volts), PLC and automation programming, production machinery installation, motor control centers, panel controls, and more.",
+        img: industrialMaintenance 
+    },
+
+    { 
+        title: "Facility Automation and Infrastructure",
+        description: "We optimize compressed air systems for peak performance and control, ensuring energy efficiency and cost savings. Our services include replacing outdated lighting with high-efficiency LED lighting installations, motion and automation-integrated lighting controls, and complete facility automation solutions for industrial settings.",
+        img: buildingAutomation 
+    },
+
+    { 
+        title: "Industrial Construction",
+        description: "We specialize in industrial electrical construction, including equipment installation, renovations, emergency restoration, and uninterrupted power systems. Our team ensures seamless integration of lighting systems, fire alarms, security systems, and communication networks such as PA systems, video conferencing, and conventional/IP phone systems.",
+        img: construction 
+    },
+
+    { 
+        title: "Safety",
+        description: "Safety is our top priority at K&G Electric. We are fully compliant with OSHA and NEC standards, and continuously participating in training and certifications. We collaborate with inspectors and government agencies to ensure your facility meets all electrical codes, reducing risks and ensuring a safe working environment.",
+        img: safety 
+    },
+
+    { 
+        title: "Our Commitment to Transparency",
+        description: [
+            "- We will never withhold documentation.",
+            "- We will never lock PLC or HMI programs.",
+            "- We will never create proprietary program components.",
+            "- We will never intentionally complicate wiring or controls for unnecessary service calls."
+        ],
+        img: important 
+    },
+
+    { 
+        title: "Bottom Line",
+        description: "At K&G Electric, we believe in building strong partnerships for long-term success. We provide industrial businesses with reliable, efficient, and innovative electrical solutions. By sharing our knowledge and experience, we help our clients optimize operations, enhance productivity, and achieve sustainable growth.",
+        img: bottomLine 
+    }
 ];
+
 
 const Services = () => {
     const servicesRef = useRef(null);

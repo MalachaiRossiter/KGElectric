@@ -36,24 +36,24 @@ const ProjectPannels = () => {
     }, []);
 
     const projectBoxData = [
-        { title: "Beans", 
-        summary: "Labore est dolor culpa aute deserunt aliqua id esse ea minim officia.",
-        description: "Anim qui magna minim eu exercitation nulla. Do mollit fugiat esse ex ut non ad. Et occaecat officia reprehenderit elit ut nulla dolore eu ad ad ea. Velit anim occaecat veniam laborum velit esse sit exercitation officia cupidatat adipisicing nostrud dolore. Labore aliqua fugiat sunt minim velit ad. Consequat enim eu adipisicing sunt laborum eu elit deserunt sunt voluptate ut est.",
+        { title: "3 Phase Transformer", 
+        summary: "480 Volt 3 Phase sub-pannels with a 400 amp transfer switch",
+        description: "480 Volt 3 Phase sub-pannels with a 400 amp transfer switch",
         icon: phaseDistrubution
     },
-    { title: "Beans", 
-        summary: "Labore est dolor culpa aute deserunt aliqua id esse ea minim officia.",
-        description: "Anim qui magna minim eu exercitation nulla. Do mollit fugiat esse ex ut non ad. Et occaecat officia reprehenderit elit ut nulla dolore eu ad ad ea. Velit anim occaecat veniam laborum velit esse sit exercitation officia cupidatat adipisicing nostrud dolore. Labore aliqua fugiat sunt minim velit ad. Consequat enim eu adipisicing sunt laborum eu elit deserunt sunt voluptate ut est.",
+    { title: "Banner Programmable Safety Relay", 
+        summary: "Installed for safety interlocks of MCR contactors, safety doors and gates",
+        description: "Installed for safety interlocks of MCR contactors, safety doors and gates",
         icon: BannerSafetyInstall
     },
-    { title: "Beans", 
-        summary: "Labore est dolor culpa aute deserunt aliqua id esse ea minim officia.",
-        description: "Anim qui magna minim eu exercitation nulla. Do mollit fugiat esse ex ut non ad. Et occaecat officia reprehenderit elit ut nulla dolore eu ad ad ea. Velit anim occaecat veniam laborum velit esse sit exercitation officia cupidatat adipisicing nostrud dolore. Labore aliqua fugiat sunt minim velit ad. Consequat enim eu adipisicing sunt laborum eu elit deserunt sunt voluptate ut est.",
+    { title: "Troubleshooting Induction Heat System", 
+        summary: "Troubleshooting work with heating system",
+        description: "We needed to locate problems with IGBT's causing firing issues in the system",
         icon: EquipmentTesting
     },
-    { title: "Beans", 
-        summary: "Labore est dolor culpa aute deserunt aliqua id esse ea minim officia.Labore est dolor culpa aute deserunt aliqua id esse ea minim officia",
-        description: "Anim qui magna minim eu exercitation nulla. Do mollit fugiat esse ex ut non ad. Et occaecat officia reprehenderit elit ut nulla dolore eu ad ad ea. Velit anim occaecat veniam laborum velit esse sit exercitation officia cupidatat adipisicing nostrud dolore. Labore aliqua fugiat sunt minim velit ad. Consequat enim eu adipisicing sunt laborum eu elit deserunt sunt voluptate ut est.",
+    { title: "Switch Gear", 
+        summary: "Inside image of 6000 AMP switch gear",
+        description: "We installed this 6000 AMP switch gear to handle power produced by 6.5 Megawatt generating system",
         icon: SwitchGear
     }];
 

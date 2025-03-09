@@ -29,11 +29,11 @@
 
 .home-text-container h3{
     color: #e2e2e2;
-    font-size: 24px;
+    font-size: 1.5rem;
 }
 
 .home-text-container h1{
-    font-size: 60px;
+    font-size: 4rem;
 }
 
 .word-transition {
@@ -72,7 +72,7 @@
     padding: 10px 20px;
     color: white;
     background-color: #fb860000;
-    font-size: 16px;
+    font-size: 1rem;
     text-decoration: none;
     cursor: pointer;
     border: solid 2px white;
@@ -143,7 +143,7 @@
     }
 
     .home-text-container h1 {
-        font-size: 40px;
+        font-size: 2.5rem;
         text-align: center; /* Ensure text is centered */
     }
 
@@ -177,7 +177,7 @@
     }
 
     .home-text-container h1 {
-        font-size: 36px;
+        font-size: 2.5rem;
         text-align: center; /* Ensure text is centered */
     }
 

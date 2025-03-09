@@ -39,36 +39,35 @@
 
 .about-header h3 {
     padding-bottom: 5px;
-    font-size: 24px;
+    font-size: 1.5rem;
     color: black;
 }
 
 .about-header h1 {
     color: white;
-    font-size: 60px;
+    font-size: 4rem;
 }
 
 .about-container p {
     font-family: "Domine", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
-    font-size: 24px;
+    font-size: 1.5rem;
     line-height: 2;
 }
 
 .specialties-container {
     display: flex;
-    width: 60vw; /* 60% of the screen width */
-    height: 60vh; /* 60% of the screen height */
-    justify-content: space-between; /* Space boxes evenly */
-    align-items: center;
-    /* Set for Fade in Animation */
+    width: 60vw;
+    padding: 30px;
+    justify-content: space-between;
+    align-items: stretch;
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 1.2s ease-out, transform 1.2s ease-out;
 }
 
-.specialties-container.fade-in{
+.specialties-container.fade-in {
     opacity: 1;
     transform: translateY(0);
 }
@@ -76,15 +75,15 @@
 .specialties-box {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     align-items: center;
-    flex: 1; /* Ensures equal space for each box */
     text-align: center;
     padding: 20px;
     border-left: 1px solid rgba(255, 255, 255, 0.404); /* White line between each box */
+    flex: 1;
+    min-height: 300px; /* Set a minimum height for consistent size */
 }
 
-/* Remove left border for the first box to avoid double border effect */
+/* Remove left border for the first box */
 .specialties-box:first-child {
     border-left: none;
 }
@@ -95,7 +94,7 @@
 
 .specialties-box-header h3 {
     color: rgb(255, 255, 255);
-    font-size: 30px;
+    font-size: 2rem;
 }
 
 .specialties-icon {
@@ -104,25 +103,13 @@
 
 /* Responsive Styles */
 @media (max-width: 1200px) {
-    .about-header h1 {
-        font-size: 50px;
-    }
-
-    .about-header h3 {
-        font-size: 22px;
-    }
-
-    .about-container p {
-        font-size: 20px;
-    }
-
     .specialties-container {
         width: 80vw;
         height: 50vh;
     }
 
     .specialties-box-header h3 {
-        font-size: 26px;
+        font-size: 1.5rem;
     }
 
     .specialties-icon {
@@ -131,22 +118,6 @@
 }
 
 @media (max-width: 600px) {
-    .about-header h1 {
-        font-size: 36px;
-    }
-
-    .about-header h3 {
-        font-size: 20px;
-    }
-
-    .about-container p {
-        font-size: 16px;
-    }
-
-    .about-content {
-        width: 80%;
-    }
-
     .specialties-container {
         flex-direction: column;
         width: 100%;
@@ -159,7 +130,7 @@
     }
 
     .specialties-box-header h3 {
-        font-size: 22px;
+        font-size: 1.5rem;
     }
 
     .specialties-icon {
