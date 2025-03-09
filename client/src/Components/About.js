@@ -68,7 +68,12 @@ const About = () => {
                     <h1>We are K&G Electric</h1>
                 </div>
                 <p>
-                    K&G Electric, Automation and Engineering is your go-to engineering and technical support service...
+                K&G Electric, Automation and Engineering is the go to engineering and technical support service for
+                    industrial components, factory and process control. We have been servicing North East Ohio and the 
+                    East Coast of the United States for over 2 decades. Our in-house team of engineers and technical experts have over 65 years of experience
+                    in services such as expert engineering; technical support for factory and process control; automating systems;
+                    electric, hydraulic, and pneumatic equipment; and heat transfer / pumping and cooling applications. Our services have earned the
+                    trust of high exposure customers in the Greater Cleveland area and we hope that we will earn your trust too!
                 </p>
             </div>
             
