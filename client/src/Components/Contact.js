@@ -82,11 +82,11 @@ const Contact = (props) => {
     };
 
     return (
-        <div className='contact-container'>
-            <div className='contact-form-header'>
+        <section className='contact-container'>
+            <header className='contact-form-header'>
                 <h3>CONTACT US</h3>
                 <h1>Let's work together to improve your business</h1>
-            </div>
+            </header>
             <div className='contact-form-container'>
                 <form onSubmit={handleSubmit} className='contact-form'>
                 <h3>SEND US A MESSAGE</h3>
@@ -198,7 +198,7 @@ const Contact = (props) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 }
 

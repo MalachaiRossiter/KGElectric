@@ -13,11 +13,11 @@ const words = ["Electric", "Engineering", "Automation"];
 const colors = ["#fb8500", "#fb8500", "#fb8500"];
 
 const sectionTitles = {
-    "home": "K&G Electric - Electrical Engineering",
+    "home": "K&G Electric Automation Engineering",
     "about": "About K&G Electric",
-    "services": "Our Services - K&G Electric",
-    "projects": "Projects - K&G Electric",
-    "contact": "Contact Us - K&G Electric",
+    "services": "K&G Electric's Services",
+    "projects": "K&G Electric's Projects",
+    "contact": "Contact K&G Electric",
 };
 
 const Home = () => {
@@ -93,7 +93,7 @@ const Home = () => {
                 <Link className='logoWrapper' to={"/"}>
                     <img className='logo' src={logo} alt="K&G Electric logo" />
                 </Link>
-                <div className='home-text-container'>
+                <header className='home-text-container'>
                     <h3>Welcome to K&G{" "}
                         <span className={`word-transition ${fade}`} style={{ color: colors[currentWordIndex] }}>
                             {words[currentWordIndex]}
@@ -104,7 +104,7 @@ const Home = () => {
                         <h2 className='contactbtn' onClick={() => scrollToSection("contact")}>START A PROJECT</h2>
                         <h2 className='contactbtn' onClick={() => scrollToSection("about")}>LEARN MORE</h2>
                     </div>
-                </div>
+                </header>
                 <div className='scroll' onClick={() => scrollToSection("about")}>
                     <div className='arrow'></div>
                     <h2>SCROLL DOWN</h2>

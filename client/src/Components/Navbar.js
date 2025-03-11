@@ -68,9 +68,9 @@ const Navbar = () => {
                     <h2 className='nav-link' onClick={() => scrollToSection("services")}>Services</h2>
                     <h2 className='nav-link' onClick={() => scrollToSection("projects")}>Projcets</h2>
                     <h2 className='nav-link' onClick={() => scrollToSection("contact")}>Contact Us</h2>
-                    <Link className='nav-link' to="/resume" onClick={() => setIsOpen(false)}>
+                    <a className='nav-link' href="/resume" onClick={() => setIsOpen(false)}>
                         <h2>We're Hiring</h2>
-                    </Link>
+                    </a>
                 </div>
                 <div className={`nav-extra-text ${isOpen ? 'fade-in' : 'fade-out'}`}>
                     <div className='extra-text-container' id='phone-number'>

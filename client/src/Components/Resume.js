@@ -82,16 +82,16 @@ const Resume = (props) => {
     };
 
     return (
-        <div className='contact-container'>
+        <section className='contact-container'>
             <Helmet>
                 <title>Apply to K&G Electric</title>
                 <meta name="description" content="Apply to be an Electrical Engineer with K&G Electric" />
                 <meta name="keywords" content="Electrician, Electrical, Industrial Electrian, North East Ohio, Ohio Electrician" />
             </Helmet>
-            <div className='contact-form-header'>
+            <header className='contact-form-header'>
                 <h3>CONTACT US</h3>
                 <h1>Looking for work? We're looking for you!</h1>
-            </div>
+            </header>
             <div className='contact-form-container'>
                 <form onSubmit={handleSubmit} className='contact-form'>
                     <h3>SEND US A MESSAGE</h3>
@@ -173,7 +173,7 @@ const Resume = (props) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 }
 

@@ -168,6 +168,13 @@
 }
 
 @media (max-width: 600px) {
+
+    .logoWrapper{
+        position:absolute;
+        top: 20px;
+        left: 20px;
+    }
+
     .scroll{
         display: none;
     }

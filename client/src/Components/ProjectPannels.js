@@ -58,11 +58,11 @@ const ProjectPannels = () => {
     }];
 
     return (
-        <div className="projects-container">
-            <div ref={projectsRef} className={`projects-header ${isProjectsVisible ? "fade-in" : ""}`}> 
+        <section className="projects-container">
+            <header ref={projectsRef} className={`projects-header ${isProjectsVisible ? "fade-in" : ""}`}> 
                 <h3>Check Out Our Work</h3>
                 <h2>We're making some pretty cool things and hope that you'll think so too</h2>
-            </div>
+            </header>
             <div className={`project-box-container`}>
                 {projectBoxData.map((projects, index) => (
                     <ProjectBox
@@ -74,7 +74,7 @@ const ProjectPannels = () => {
                     />
                 ))}
             </div>
-        </div>
+        </section>
     );
 }
 

@@ -102,12 +102,12 @@ const Services = () => {
 
 
     return (
-        <div className='services-container'>
-            <div ref={servicesRef} className={`services-header ${isServiceVisible ? "fade-in" : ""}`}>
+        <section className='services-container'>
+            <header ref={servicesRef} className={`services-header ${isServiceVisible ? "fade-in" : ""}`}>
                 <h3>WHAT WE DO</h3>
                 <h2>Our goal is to ensure that your facilities
                     stay up and running around the clock</h2>
-            </div>
+            </header>
             <div className='service-items-container'>
                 {servicesData.map((service, index) => (
                     <ServiceBox 
@@ -118,7 +118,7 @@ const Services = () => {
                     />
                 ))}
             </div>
-        </div>
+        </section>
     );
 };
 

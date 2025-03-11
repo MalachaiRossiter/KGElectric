@@ -60,13 +60,13 @@ const About = () => {
     ];
 
     return (
-        <div className='about-container'>
+        <section className='about-container'>
             {/* About Section */}
             <div ref={aboutRef} className={`about-content ${isAboutVisible ? "fade-in" : ""}`}>
-                <div className='about-header'>
+                <header className='about-header'>
                     <h3>HELLO THERE</h3>
                     <h1>We are K&G Electric</h1>
-                </div>
+                </header>
                 <p>
                 K&G Electric, Automation and Engineering is the go to engineering and technical support service for
                     industrial components, factory and process control. We have been servicing North East Ohio and the 
@@ -88,7 +88,7 @@ const About = () => {
                     />
                 ))}
             </div>
-        </div>
+        </section>
     );
 };
 
