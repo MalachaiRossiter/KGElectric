@@ -54,6 +54,13 @@ body {
     font-style: normal;
 }
 
+footer {
+    background-color: #111111;
+    font-family: "Rethink Sans", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
 html {
     scroll-behavior: smooth;
 }

@@ -23,6 +23,9 @@
     color: rgb(99, 99, 99);
     text-decoration: none;
     transition: 0.25s ease-in;
+    font-family: "Rethink Sans", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
 }
 
 .footer-links:hover {

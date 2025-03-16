@@ -6,28 +6,6 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const navigate = useNavigate();
 
-    useEffect(() => {
-        if (Notification.permission !== 'granted') {
-            Notification.requestPermission();
-        }
-    }, []);
-
-    const handleCopy = () => {
-        navigator.clipboard.writeText('(440) 594-1460')
-            .then(() => {
-                if (Notification.permission === 'granted') {
-                    new Notification('Success', {
-                        body: 'Phone number copied to clipboard!',
-                    });
-                } else {
-                    alert('Phone number copied to clipboard!');
-                }
-            })
-            .catch(err => {
-                console.error('Failed to copy: ', err);
-            });
-    };
-
     const scrollToSection = (id) => {
         if (id === "home") {
             navigate('/'); // Navigate to the home page
@@ -75,7 +53,7 @@ const Navbar = () => {
                 <div className={`nav-extra-text ${isOpen ? 'fade-in' : 'fade-out'}`}>
                     <div className='extra-text-container' id='phone-number'>
                         <p>PHONE NUMBER:</p>
-                        <p onClick={handleCopy}>(440) 594-1460</p>
+                        <p>(440) 594-1460</p>
                     </div>
                     <div className='extra-text-container'>
                         <p>ADDRESS:</p>
