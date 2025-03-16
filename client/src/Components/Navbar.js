@@ -80,6 +80,7 @@ const Navbar = () => {
                     <div className='extra-text-container'>
                         <p>ADDRESS:</p>
                         <p>7012 Hatches Corners RD, CONNEAUT OH</p>
+                        <p>DUNS: 801335774</p>
                     </div>
                 </div>
             </div>

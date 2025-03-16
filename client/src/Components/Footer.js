@@ -53,6 +53,7 @@ const Footer = (props) => {
                 <div className='footer-links'>
                     <p>ADDRESS:<br/>
                     7012 Hatches Corners RD, CONNEAUT OH</p>
+                    <p>DUNS: 801335774</p>
                 </div>
             </div>
         </footer>
