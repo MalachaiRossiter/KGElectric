@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import logo from '../Assets/LogoFullText.png';
+import Multimeter from '../Assets/Multimeter.png';
 import '../CSS/Home.css';
 
 import About from '../Components/About';
@@ -85,11 +86,8 @@ const Home = () => {
             </Helmet>
 
             {/* Hero Section (Home) */}
-            <div 
-                id="home" 
-                className='home-container' 
-                style={{ backgroundPositionY: `calc(50% + ${scrollY * 0.5}px)` }}
-            >
+            <div id="home" className='home-container'>
+                <img src={Multimeter} className='home-background' alt='Multimeter background' style={{ transform: `translateY(${scrollY * 0.5}px)` }}/>
                 <Link className='logoWrapper' to={"/"}>
                     <img className='logo' src={logo} alt="K&G Electric logo" />
                 </Link>
