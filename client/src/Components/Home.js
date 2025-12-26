@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import logo from '../Assets/LogoFullText.png';
-import Multimeter from '../Assets/Multimeter.png';
+import Multimeter from '../Assets/Multimeter.jpg';
 import '../CSS/Home.css';
 
 import About from '../Components/About';
