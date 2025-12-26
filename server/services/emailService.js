@@ -23,8 +23,7 @@ if (attachments.length > 0) {
         } else if (att.content) {
             return {
                 filename: att.filename,
-                content: fs.readFileSync(att.path)
-
+                content: att.content,
             };
         } else {
             throw new Error(`Attachment ${att.filename} must have a content or path`);
