@@ -1,26 +1,30 @@
-const nodemailer =  require('nodemailer');
+const { Resend } = require("resend");
 
-const sendEmailService = async (replyEmail, subject, body, attachments = []) => {
-    const transporter = nodemailer.createTransport({
-        host: process.env.EMAIL_HOST,
-        port: process.env.EMAIL_PORT,
-        secure: true,
-        auth: {
-            user:process.env.EMAIL_USER,
-            pass:process.env.EMAIL_PASS
-        },
-    });
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-    const mailOptions = {
-        from: process.env.EMAIL_USER,
-        to: process.env.EMAIL_RECEIVER,
-        replyTo: replyEmail,
-        subject: subject,
-        text: body,
-        attachments: attachments.length > 0 ? attachments : undefined // Attach only if present
+const sendEmailService = async (
+    replyEmail,
+    subject,
+    body,
+    attachments = []
+) => {
+    const emailData = {
+    from: process.env.EMAIL_FROM,
+    to: process.env.EMAIL_RECEIVER,
+    subject,
+    text: body,
+    reply_to: replyEmail,
     };
-    console.log("Fishished creating email. Now Sending to: " + process.env.EMAIL_RECEIVER + " From: " + process.env.EMAIL_USER + " With Credentials: " + process.env.EMAIL_PASS);
-    return transporter.sendMail(mailOptions);
-}
 
-module.exports = {sendEmailService};
+  // Attachments (optional)
+    if (attachments.length > 0) {
+        emailData.attachments = attachments.map(att => ({
+            filename: att.filename,
+      content: att.content, // Buffer or base64
+    }));
+    }
+
+    return resend.emails.send(emailData);
+};
+
+module.exports = { sendEmailService };
