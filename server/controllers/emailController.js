@@ -41,6 +41,7 @@ module.exports.createContactRequest = async (req, res) => {
         return res.status(400).json({ success: false, errors });
     }
     //creates the email subject and email body
+    console.log("we have gotten this far")
     try {
         const subject = `New Inquiry from ${firstName} ${lastName}`;
         const emailBody = `
