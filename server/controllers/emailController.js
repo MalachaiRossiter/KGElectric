@@ -1,6 +1,5 @@
 const { sendEmailService } = require('../services/emailService');
 const fs = require('fs');
-const path = require('path');
 
 module.exports.createContactRequest = async (req, res) => {
     const {firstName, lastName, business, email, phone, zipCode, timeFrame, message} = req.body;
@@ -115,7 +114,7 @@ module.exports.createResumeRequest = async (req, res) => {
             if (file) {
                 attachments.push({
                     filename: file.originalname,
-                    path: file.path,
+                    content: fs.readFileSync(file.path), //Read file into Buffer
                 });
             }
     
