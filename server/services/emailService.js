@@ -12,12 +12,24 @@ const sendEmailService = async (replyEmail, subject, body,attachments = []) => {
     };
 
   // Attachments (optional)
-    if (attachments.length > 0) {
-        emailData.attachments = attachments.map(att => ({
-            filename: att.filename,
-      content: att.content, // Buffer or base64
-    }));
-    }
+if (attachments.length > 0) {
+    emailData.attachments = attachments.map(att => {
+        if (att.path) {
+            return {
+                filename: att.filename,
+                path: att.path,
+            };
+        } else if (att.content) {
+            return {
+                filename: att.filename,
+                content: att.content, // Buffer or base64
+            };
+        } else {
+            throw new Error(`Attachment ${att.filename} must have a content or path`);
+        }
+    });
+}
+
 
     return resend.emails.send(emailData);
 };
