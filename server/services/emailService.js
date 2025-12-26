@@ -19,7 +19,7 @@ const sendEmailService = async (replyEmail, subject, body, attachments = []) => 
         text: body,
         attachments: attachments.length > 0 ? attachments : undefined // Attach only if present
     };
-    console.log("Pegis");
+    console.log("Fishished Email Services");
     return transporter.sendMail(mailOptions);
 }
 
