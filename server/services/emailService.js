@@ -19,7 +19,7 @@ const sendEmailService = async (replyEmail, subject, body, attachments = []) => 
         text: body,
         attachments: attachments.length > 0 ? attachments : undefined // Attach only if present
     };
-    console.log("Fishished Email Services");
+    console.log("Fishished creating email. Now Sending to: " + process.env.EMAIL_RECEIVER + " From: " + process.env.EMAIL_USER + " With Credentials: " + process.env.EMAIL_PASS);
     return transporter.sendMail(mailOptions);
 }
 
