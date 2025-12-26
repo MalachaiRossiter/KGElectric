@@ -44,7 +44,7 @@ const Navbar = () => {
                 <h2 className='nav-link' onClick={() => scrollToSection("home")}>Home</h2>
                     <h2 className='nav-link' onClick={() => scrollToSection("about")}>About Us</h2>
                     <h2 className='nav-link' onClick={() => scrollToSection("services")}>Services</h2>
-                    <h2 className='nav-link' onClick={() => scrollToSection("projects")}>Projcets</h2>
+                    <h2 className='nav-link' onClick={() => scrollToSection("projects")}>Projects</h2>
                     <h2 className='nav-link' onClick={() => scrollToSection("contact")}>Contact Us</h2>
                     <a className='nav-link' href="/resume" onClick={() => setIsOpen(false)}>
                         <h2>We're Hiring</h2>
