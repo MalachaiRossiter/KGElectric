@@ -5,7 +5,7 @@ require('dotenv').config();
 const app = express();
 
 // Middleware
-app.use(cors({ origin: 'https://kgelectric.com' }));
+app.use(cors({ origin: 'https://kgelectricautomation.com' }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
